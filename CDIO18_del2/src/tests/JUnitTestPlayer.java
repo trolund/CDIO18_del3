@@ -16,9 +16,6 @@ public class JUnitTestPlayer {
 		assertEquals("Knud", p.getName());
 		assertEquals(50, p.getAccount().getSum());
 		
-		p.setName("Brian");
-		assertEquals("Brian", p.getName());
-		
 		p.getAccount().setSum(0);
 		assertEquals(0, p.getAccount().getSum());
 		
