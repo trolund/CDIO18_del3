@@ -23,13 +23,19 @@ public class Gamecontroller {
 	private game.Field[] list = new Fieldlist().getFields();
 	private int maxSum = 3000;
 	private Output out = new Output();
+	private int numberOfPlayers = 0;
 
 	public static void main(String[] args) {
 		new Gamecontroller().setup();
 	}
 
 	public void setup(){
+		
+		numberOfPlayers = out.howManyPlayers();
 		cup = new Dicecup();
+		
+		
+		
 		player2 = new Player(0,"Spiller 1 - Mathias");
 		player1 = new Player(0,"Spiller 2 - Ronni");
 
@@ -74,16 +80,13 @@ public class Gamecontroller {
 	}
 
 	public void update(Player p){
-		
-		
-		// skrift tur logik
-		
+	
 	}
 
 	private void winner(Player p){
 		if(p.getAccount().getSum() >= maxSum){
 			out.winnerprint(p);
-			out.OneMoreGame();
+			out.oneMoreGame();
 			player2.getAccount().setSum(1000);
 			player1.getAccount().setSum(1000);
 			GUI.close();

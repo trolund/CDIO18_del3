@@ -9,9 +9,13 @@ public class Output {
 		GUI.showMessage("The winner is" + p.getName());
 	}
 	
-	public void OneMoreGame(){
+	public void oneMoreGame(){
 		System.out.println("One More Game?");
 		GUI.showMessage("One More Game?");
 	}
-
+	
+	public int howManyPlayers(){
+		return Integer.parseInt(GUI.getUserSelection("hvor mange spillere?", "2","3","4","5","6")); 
+	}
+	
 }
