@@ -17,11 +17,10 @@ import desktop_resources.GUI;
 
 public class Gamecontroller {
 
-	private Player player2;
-	private Player player1;
+	private Player[] players = null;
 	private Dicecup cup;
 	private game.Field[] list = new Fieldlist().getFields();
-	private int maxSum = 3000;
+	private final int maxSum = 3000;
 	private Output out = new Output();
 	private int numberOfPlayers = 0;
 
@@ -30,14 +29,15 @@ public class Gamecontroller {
 	}
 
 	public void setup(){
-		
 		numberOfPlayers = out.howManyPlayers();
+		players = new Player[numberOfPlayers];
+		
+		for(int i=0; i < players.length; i++){
+			players[i] = new Player(0,"player "+ i);
+		}
+		
 		cup = new Dicecup();
 		
-		
-		
-		player2 = new Player(0,"Spiller 1 - Mathias");
-		player1 = new Player(0,"Spiller 2 - Ronni");
 
 		//flyttes til Fieldlsit.
 //		Field[] fields = new Field[11];
@@ -56,45 +56,54 @@ public class Gamecontroller {
 //
 
 	//	GUI.create(fields);
-
-		Car car1 = new Car.Builder()
-				.typeRacecar()
-				.patternHorizontalDualColor()
-				.primaryColor(Color.RED)
-				.secondaryColor(Color.BLUE)
-				.build();
-
-		Car car2 = new Car.Builder()
-				.typeTractor()
-				.patternHorizontalDualColor()
-				.primaryColor(Color.BLACK)
-				.secondaryColor(Color.RED)
-				.build();
-
-		GUI.addPlayer(player2.getName(), player2.getAccount().getSum(),car1);
-		GUI.addPlayer(player1.getName(), player1.getAccount().getSum(),car2);
-
-		System.out.println("setup done");
+ //oprettes i Output klasse
+//		Car car1 = new Car.Builder()
+//				.typeRacecar()
+//				.patternHorizontalDualColor()
+//				.primaryColor(Color.RED)
+//				.secondaryColor(Color.BLUE)
+//				.build();
+//
+//		Car car2 = new Car.Builder()
+//				.typeTractor()
+//				.patternHorizontalDualColor()
+//				.primaryColor(Color.BLACK)
+//				.secondaryColor(Color.RED)
+//				.build();
 
 		
+
+		System.out.println("setup done");
+		update();
 	}
 
-	public void update(Player p){
-	
+	public void update(){
+		System.out.println(players.length);
+		for(int i=0; i < players.length; i++){
+			
+			if(!(players[i].getAccount().getSum() < 0)){
+			turn(players[i]);
+			}
+			
+			if(i < players.length){
+				i = 0;
+			}
+		}
 	}
 
 	private void winner(Player p){
 		if(p.getAccount().getSum() >= maxSum){
 			out.winnerprint(p);
-			out.oneMoreGame();
-			player2.getAccount().setSum(1000);
-			player1.getAccount().setSum(1000);
+			out.oneMoreGame();	
+			for(int i=0; i>players.length; i++){
+				players[i].getAccount().setSum(1000);
+			}
 			GUI.close();
 		}
 	}
 
 	private void turn(Player p){
-
+		System.out.println("en tur bliver spillet af"+ p.getName());
 		GUI.removeAllCars(p.getName());
 
 		cup.die1.roll();
