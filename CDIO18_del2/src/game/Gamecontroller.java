@@ -1,5 +1,13 @@
 package game;
 
+/**
+ * Team 18 - CDIO 3 
+ * DTU
+ * Collaborators:  KasperLeiszner, Bijan Negari, Helene Zgaya, Frederik von Scholten and Troels Lund
+ */
+
+
+
 import java.awt.Color;
 
 import desktop_codebehind.Car;
