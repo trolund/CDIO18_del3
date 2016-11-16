@@ -15,7 +15,7 @@ public class Output {
 	}
 	
 	public int howManyPlayers(){
-		return Integer.parseInt(GUI.getUserSelection("hvor mange spillere?", "2","3","4","5","6")); 
+		return Integer.parseInt(GUI.getUserSelection("How many players?", "2","3","4","5","6")); 
 	}
 	
 }
