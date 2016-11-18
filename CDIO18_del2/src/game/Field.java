@@ -40,8 +40,7 @@ public class Field
 		GUI.setCar(no,p.getName());
 		GUI.showMessage(getDescription());
 		p.getAccount().addSum(getValue());
-
-		System.out.println("Flyttet til felt: " + no);
+		GUI.setBalance(p.getName(), p.getAccount().getSum());
 		return extraTurn;
 	}
 	
