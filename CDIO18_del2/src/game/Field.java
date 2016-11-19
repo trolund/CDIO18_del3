@@ -44,7 +44,7 @@ public class Field
 		return extraTurn;
 	}
 	
-	public String toString()
+	public String toString() 
 	{
 		return 	"Value: " + value + "\n" + 
 				"Name: " + name + "\n" + 
