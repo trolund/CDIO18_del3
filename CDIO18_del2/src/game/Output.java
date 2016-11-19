@@ -21,7 +21,7 @@ public class Output {
 	public String[] setplayerNames(){		
 		String[] names = new String[Gamecontroller.getNumberOfPlayers()];
 		for(int i = 0; i < names.length; i++){
-			names[i] = GUI.getUserString("Name of Player " + i+1);
+			names[i] = GUI.getUserString("Name of Player " + i);
 		}
 		return names; 
 	}

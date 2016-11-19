@@ -6,6 +6,9 @@ package game;
  * Collaborators:  KasperLeiszner, Bijan Negari, Helene Zgaya, Frederik von Scholten and Troels Lund
  */
 
+
+
+
 import desktop_resources.GUI;
 
 public class Gamecontroller {
@@ -31,8 +34,11 @@ public class Gamecontroller {
 
 	public void update(){
 		for(int i=0; i <= (players.length)-1; i++){
-			if(!(players[i].getAccount().getSum() <= 0)){
+			if((!(players[i].getAccount().getSum() <= 0))){ // not that smart.... :)
 			turn(players[i]);
+			}
+			else {
+				players[i].setBankrupt(true);
 			}
 			if(i >= players.length-1){
 				i = -1;
@@ -42,7 +48,15 @@ public class Gamecontroller {
 
 	private void winner(Player p){
 		if(p.getAccount().getSum() >= maxSum){
+			
+			
+			
+			
+			
 			out.winnerPrint(p);
+			
+			
+			
 			out.oneMoreGame();	
 			for(int i=0; i>players.length; i++){
 				players[i].getAccount().setSum(1000);
