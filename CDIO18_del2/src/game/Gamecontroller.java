@@ -19,7 +19,7 @@ public class Gamecontroller {
 	private game.Field[] list = new Fieldlist().getFields();
 	private final int maxSum = 3000;
 	private final int startSum = 1000;
-	private Output out = new Output();
+	private static Output out = new Output();
 	private static int numberOfPlayers = 0;
 
 	public static void main(String[] args) {
