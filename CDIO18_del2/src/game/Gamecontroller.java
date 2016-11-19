@@ -29,6 +29,7 @@ public class Gamecontroller {
 	public void setup(){
 		addplayers();
 		cup = new Dicecup();
+		
 		update();
 	}
 
@@ -75,9 +76,6 @@ public class Gamecontroller {
 		cup.die1.roll();
 		cup.die2.roll();
 
-		if(list[cup.getSum()-2].landOn(p, cup.getSum()-1)){
-			turn(p);
-		}
 		winner(p);
 	}
 	

@@ -32,6 +32,10 @@ public class Output {
 		GUI.showMessage(s);
 		
 	}
+	
+	public boolean taxAction(int price){
+		return GUI.getUserLeftButtonPressed("hvad vil du helst?", "Betale " + price , "10% af din formue");
+	}
 
 	
 }

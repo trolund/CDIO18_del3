@@ -20,21 +20,18 @@ public class Field
 	{
 		return description;
 	}
-<<<<<<< HEAD
 	
-	public boolean landOn(Player p, int no){
-		GUI.setCar(no,p.getName());
-		GUI.showMessage(getDescription());
-		p.getAccount().addSum(getValue());
-		GUI.setBalance(p.getName(), p.getAccount().getSum());
-		return extraTurn;
+	public void landOn(Player p, int no){
+//		GUI.setCar(no,p.getName());
+//		GUI.showMessage(getDescription());
+//		p.getAccount().addSum(getValue());
+//		GUI.setBalance(p.getName(), p.getAccount().getSum());
+//		return extraTurn;
 	}
 	
-	public String toString() 
-=======
+
 
 	public String toString()
->>>>>>> refs/remotes/origin/Helene
 	{
 		return 	"Name: " + name + "\n" + 
 				"Description: " + description;
