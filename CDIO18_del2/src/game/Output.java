@@ -1,5 +1,6 @@
 package game;
 
+import desktop_fields.Street;
 import desktop_resources.GUI;
 
 public class Output 
@@ -38,6 +39,23 @@ public class Output
 	{
 		GUI.setCar(nr,p.getName());
 		GUI.showMessage(s);
+	}
+	
+	public void drawGameboard(Fieldlist fd)
+	{
+		game.Field[] logicField = fd.getFields();
+		desktop_fields.Field[] guiField = new desktop_fields.Field[logicField.length];
+
+		GUI.create(guiField);
+
+		for (int i = 0; i < logicField.length; i++) 
+		{
+			guiField[i] = new Street.Builder()
+								.setTitle(logicField[i].getName())
+								.setRent("" + logicField[i].getValue())
+								.build();
+			
+		}
 	}
 }
 
