@@ -20,7 +20,7 @@ public class Gamecontroller {
 	private String[] names;
 	private Player[] players;
 	private Dicecup cup;
-	private game.Field[] list = new Fieldlist().getFields();
+	private static game.Field[] list = new Fieldlist().getFields();
 	private final int maxSum = 3000;
 	private final int startSum = 1000;
 	private Output out = new Output();
@@ -34,7 +34,9 @@ public class Gamecontroller {
 		addplayers();
 		cup = new Dicecup();
 		
-		out.GUIcreateFields(); // Mangler GUI liste
+		
+		
+		
 		
 		update();
 	}
@@ -109,6 +111,11 @@ public class Gamecontroller {
 
 	
 	}
+
+	public static game.Field[] getList() {
+		return list;
+	}
+
 
 	
 }
