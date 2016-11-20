@@ -29,6 +29,5 @@ public class Ownable extends Field
 	
 	
 	
-	
 }
 
