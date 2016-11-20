@@ -30,7 +30,7 @@ public class Output {
 	}
 	
 	
-	public boolean 
+	// public boolean 
 
 	public void turnMsg(int nr, Player p, String s){
 		GUI.setCar(nr,p.getName());
@@ -39,7 +39,7 @@ public class Output {
 	}
 	
 	public boolean taxAction(int price){
-		return GUI.getUserLeftButtonPressed("hvad vil du helst?", "Betale " + price , "10% af din formue");
+		return GUI.getUserLeftButtonPressed("hvad vil du helst?", "Betale " + price , "eller betale 10% af din formue");
 	}
 	
 	public void setGUIDice(int die1 , int die2){

@@ -104,7 +104,7 @@ public class Gamecontroller {
 	}
 
 
-	public void creatFiled(){
+	public void creatField(){
 	Field[] fields = new Field[11];
 
 	
