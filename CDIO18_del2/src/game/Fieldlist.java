@@ -21,13 +21,13 @@ package game;
 		fields[11] = new Refuge("Walled City", "Walled City bonus 5000 yo", 5000);
 		fields[12] = new Refuge("Monastery", "Monastery giver bonus 500 dask bro", 500);
 		
-		fields[13] = new Laborcamp("Huts in the mountain", "description", 2500, 1);
-		fields[14] = new Laborcamp("The pit","description", 2500,1);
+		fields[13] = new Laborcamp("Huts in the mountain", "description", 2500, 100); //100*sumOfDice
+		fields[14] = new Laborcamp("The pit","description", 2500,100); //100*sumOfDice
 		
 		fields[15] = new Tax("Goldmine","description", 2000,0);
-		fields[16] = new Tax("Caravan", "description", 4000, 10);
+		fields[16] = new Tax("Caravan", "description", 4000, 10); //10 procent of total assets
 		
-		fields[17] = new Fleet("Second Sail","descrip", 4000, 1);
+		fields[17] = new Fleet("Second Sail","descrip", 4000, 1); // Mellem 500 og 4000 rent
 		fields[18] = new Fleet("Sea Grover", "descprtiop", 4000, 1);
 		fields[19] = new Fleet("The Buccanneers", "fdescriptoin",4000, 1);
 		fields[20] = new Fleet("Privateer armade", "descripterion", 4000, 1);
