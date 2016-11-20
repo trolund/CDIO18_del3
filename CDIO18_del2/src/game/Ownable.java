@@ -26,9 +26,5 @@ public class Ownable extends Field
 			owner.getAccount().addSum(rent);
 			return false;
 		}
-	}
-	
-	
-	
+	}	
 }
-

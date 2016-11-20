@@ -29,6 +29,8 @@ public class Output {
 		return names; 
 	}
 	
+	
+	public boolean 
 
 	public void turnMsg(int nr, Player p, String s){
 		GUI.setCar(nr,p.getName());
