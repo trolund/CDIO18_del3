@@ -15,6 +15,7 @@ public class Refuge extends Field
 		this.bonus = bonus;
 	}
 
+
 	public int LandOnField()
 	{	
 		return bonus;	
