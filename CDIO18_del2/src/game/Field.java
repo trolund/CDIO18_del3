@@ -27,7 +27,7 @@ public class Field
 //		GUI.showMessage(getDescription());
 //		p.getAccount().addSum(getValue());
 //		GUI.setBalance(p.getName(), p.getAccount().getSum());
-// ?
+
 	}
 	
 
