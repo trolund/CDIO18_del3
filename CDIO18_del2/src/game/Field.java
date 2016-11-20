@@ -1,5 +1,7 @@
 package game;
 
+import desktop_resources.GUI;
+
 public class Field 
 {
 	private String name = "None";
@@ -22,11 +24,8 @@ public class Field
 	}
 	
 	public void landOn(Player p, int no){
-//		GUI.setCar(no,p.getName());
-//		GUI.showMessage(getDescription());
-//		p.getAccount().addSum(getValue());
-//		GUI.setBalance(p.getName(), p.getAccount().getSum());
-//		return extraTurn;
+		GUI.setCar(no,p.getName());
+		GUI.showMessage(getDescription());
 	}
 	
 

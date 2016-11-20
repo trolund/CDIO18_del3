@@ -10,6 +10,7 @@ public class Tax extends Field {
 
 	private int taxAmmount;
 	private int taxRate;
+	private Output out = new Output();
 
 	public Tax(String name, String description, int taxAmmount, int taxRate) 
 	{
@@ -18,30 +19,22 @@ public class Tax extends Field {
 		this.taxRate = taxRate;
 	}
 
-	public void LandOnField()
+	public void LandOnField(Player p)
 	{
-	
-
-		
+		payTax(p);
 	}
 	
-	public boolean payTax()
+	public void payTax(Player p)
 	{
 		
-		if()
+		if(out.taxAction(taxAmmount))
 		{
-
-			
+			p.getAccount().withdraw(taxAmmount);
 		}
-		
 		else
 		{
-				
+				p.getAccount().withdraw((int) (p.getAccount().getSum() * (taxRate/100)));
 		}
-		
-		
-		
-		
 	}
 	
 	

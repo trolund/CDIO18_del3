@@ -1,5 +1,9 @@
 package game;
 
+import java.awt.Color;
+
+import desktop_fields.Street;
+
 /**
  * Team 18 - CDIO 3 
  * DTU
@@ -19,7 +23,7 @@ public class Gamecontroller {
 	private game.Field[] list = new Fieldlist().getFields();
 	private final int maxSum = 3000;
 	private final int startSum = 1000;
-	private static Output out = new Output();
+	private Output out = new Output();
 	private static int numberOfPlayers = 0;
 
 	public static void main(String[] args) {
@@ -30,12 +34,14 @@ public class Gamecontroller {
 		addplayers();
 		cup = new Dicecup();
 		
+		out.GUIcreateFields(); // Mangler GUI liste
+		
 		update();
 	}
 
 	public void update(){
 		for(int i=0; i <= (players.length)-1; i++){
-			if((!(players[i].getAccount().getSum() <= 0))){ // not that smart.... :)
+			if(!(players[i].getAccount().getSum() <= 0)){ // not that smart.... :)
 			turn(players[i]);
 			}
 			else {
@@ -72,10 +78,15 @@ public class Gamecontroller {
 
 	private void turn(Player p){
 		GUI.removeAllCars(p.getName());
-
-		cup.die1.roll();
+		
+		cup.die1.roll(); 
 		cup.die2.roll();
-
+		
+		out.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
+		
+		list[cup.getSum()-2].landOn(p, cup.getSum()-1);
+		
+		out.setGUIBalance(p);
 		winner(p);
 	}
 	
@@ -92,8 +103,13 @@ public class Gamecontroller {
 		}
 	}
 
+
+	public void creatFiled(){
+	Field[] fields = new Field[11];
+
+	
+	}
+
+	
 }
-
-
-
 

@@ -1,5 +1,8 @@
 package game;
 
+import java.awt.Color;
+
+import desktop_fields.Street;
 import desktop_resources.GUI;
 
 public class Output {
@@ -36,8 +39,18 @@ public class Output {
 	public boolean taxAction(int price){
 		return GUI.getUserLeftButtonPressed("hvad vil du helst?", "Betale " + price , "10% af din formue");
 	}
-
 	
+	public void setGUIDice(int die1 , int die2){
+		GUI.setDice(die1,die2);
+	}
+	
+	public void setGUIBalance(Player p){
+		GUI.setBalance(p.getName(), p.getAccount().getSum());
+	}
+	
+	public void GUIcreateFields(desktop_fields.Field[] f) {	
+		GUI.create(f);
+	}
 }
 
 
