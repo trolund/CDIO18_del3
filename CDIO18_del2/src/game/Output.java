@@ -1,7 +1,5 @@
 package game;
 
-import java.awt.Color;
-
 import desktop_fields.Street;
 import desktop_resources.GUI;
 
