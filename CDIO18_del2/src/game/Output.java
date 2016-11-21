@@ -51,6 +51,16 @@ public class Output {
 	public void GUIcreateFields(desktop_fields.Field[] f) {	
 		GUI.create(f);
 	}
+	
+	public void setcar(int no, Player p){
+		p.moveCarPos(no);
+		GUI.setCar(p.getCarPos(),p.getName());
+		
+	}
+	
+	public void msgGUI(String s){
+	GUI.showMessage(s);
+	}
 }
 
 

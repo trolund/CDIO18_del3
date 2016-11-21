@@ -23,7 +23,7 @@ public class Gamecontroller {
 	private static game.Field[] list = new Fieldlist().getFields();
 	private final int maxSum = 3000;
 	private final int startSum = 1000;
-	private Output out = new Output();
+	private static Output out = new Output();
 	private static int numberOfPlayers = 0;
 
 	public static void main(String[] args) {
@@ -114,6 +114,10 @@ public class Gamecontroller {
 
 	public static game.Field[] getList() {
 		return list;
+	}
+
+	public static Output getOut() {
+		return out;
 	}
 
 

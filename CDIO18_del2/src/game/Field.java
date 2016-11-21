@@ -1,5 +1,7 @@
 package game;
 
+import desktop_resources.GUI;
+
 public class Field 
 {
 	private String name = "None";
@@ -23,10 +25,8 @@ public class Field
 
 	
 	public void landOn(Player p, int no){
-//		GUI.setCar(no,p.getName());
-//		GUI.showMessage(getDescription());
-//		p.getAccount().addSum(getValue());
-//		GUI.setBalance(p.getName(), p.getAccount().getSum());
+		always(p,no);
+		
 
 	}
 	
@@ -35,5 +35,10 @@ public class Field
 	{
 		return 	"Name: " + name + "\n" + 
 				"Description: " + description;
+	}
+	
+	public void always(Player p, int no){
+		Gamecontroller.getOut().setcar(no, p);
+		Gamecontroller.getOut().msgGUI(getDescription());
 	}
 }
