@@ -2,7 +2,7 @@ package game;
 
  public class  Fieldlist 
 {
-	private game.Field[] fields = new Field[21];
+	private game.Field[] fields = new Field[22];
 
 	public Fieldlist()
 	{
