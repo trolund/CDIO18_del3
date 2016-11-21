@@ -85,6 +85,21 @@ public class Output
 	public void msgGUI(String s){
 	GUI.showMessage(s);
 	}
+	
+	public void addplayers(Player[] players, int startSum)
+	{
+		players = new Player[howManyPlayers()];
+
+		for(int i=0; i < players.length; i++)
+		{
+			players[i] = new Player(startSum,setplayerNames()[i]);
+		}
+		
+		for(int i=0; i < players.length; i++)
+		{
+			GUI.addPlayer(players[i].getName(), players[i].getAccount().getSum());
+		}
+	}
 }
 
 
