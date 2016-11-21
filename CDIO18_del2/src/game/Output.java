@@ -1,5 +1,9 @@
 package game;
 
+/*
+ * Class wrote by: Troels Lund and Kasper Leiszner
+ */
+
 import desktop_fields.Street;
 import desktop_resources.GUI;
 

@@ -6,6 +6,10 @@ package game;
  * Collaborators:  KasperLeiszner, Bijan Negari, Helene Zgaya, Frederik von Scholten and Troels Lund
  */
 
+/*
+ * Class wrote by: Troels Lund and Kasper Leiszner
+ */
+
 import desktop_resources.GUI;
 
 public class Gamecontroller 

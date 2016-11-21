@@ -1,5 +1,9 @@
 package game;
 
+/*
+ * Class wrote by: Kasper Leiszner
+ */
+
 public class Language 
 {
 	private static String[] fieldInfo = {
