@@ -20,7 +20,7 @@ public class Gamecontroller
 	private Dicecup cup;
 	private Fieldlist list = new Fieldlist();
 	private final int maxSum = 3000;
-	private final int startSum = 1000;
+	private final int startSum = 30000;
 	private static Output out = new Output();
 	private static int numberOfPlayers = 0;
 
@@ -32,7 +32,8 @@ public class Gamecontroller
 	public void setup()
 	{
 		out.drawGameboard(list);
-		out.addplayers(players, startSum);
+		numberOfPlayers = out.howManyPlayers();
+		players = out.addplayers(players, startSum);
 		cup = new Dicecup();
 
 		update();

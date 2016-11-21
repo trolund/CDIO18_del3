@@ -50,8 +50,6 @@ public class Output
 		game.Field[] logicField = fd.getFields();
 		desktop_fields.Field[] guiField = new desktop_fields.Field[logicField.length];
 
-		GUI.create(guiField);
-
 		for (int i = 0; i < logicField.length; i++) 
 		{
 			guiField[i] = new Street.Builder()
@@ -60,6 +58,8 @@ public class Output
 								.build();
 			
 		}
+		
+		GUI.create(guiField);
 	}
 		
 	public boolean taxAction(int price){
@@ -88,9 +88,9 @@ public class Output
 	GUI.showMessage(s);
 	}
 	
-	public void addplayers(Player[] players, int startSum)
+	public Player[] addplayers(Player[] players, int startSum)
 	{
-		players = new Player[howManyPlayers()];
+		players = new Player[Gamecontroller.getNumberOfPlayers()];
 
 		for(int i=0; i < players.length; i++)
 		{
@@ -101,6 +101,8 @@ public class Output
 		{
 			GUI.addPlayer(players[i].getName(), players[i].getAccount().getSum());
 		}
+		
+		return players;
 	}
 }
 
