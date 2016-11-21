@@ -14,7 +14,7 @@ package game;
 		fields[5] = new Territory("The Werewall", "The Werewall med den fede description", 4300,1300);
 		fields[6] = new Territory("Mountain village", "Mountain Village descr", 4750, 1600);
 		fields[7] = new Territory("South Citated", "description yo", 5000, 2000);
-		fields[8] = new Territory("Palace Gates", "Baaah", 5500, 2600);
+		fields[8] = new Territory("Palace Gates", "description her yo", 5500, 2600);
 		fields[9] = new Territory("Tower", "Descriptiptipt", 6000, 3200);
 		fields[10] = new Territory("Castle", "description til Castle bro", 8000, 4000);
 		
