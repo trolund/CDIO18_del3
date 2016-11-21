@@ -42,7 +42,12 @@ public class Player {
 	}
 	
 	public void moveCarPos(int carPos) {
+		if(this.carPos + carPos > 21){
+			this.carPos = (this.carPos + carPos) - 21;
+		}
+		else{
 		this.carPos += carPos;
+		}
 	}
 
 }

@@ -1,126 +1,128 @@
 package game;
 
-import java.awt.Color;
-
-import desktop_fields.Street;
-
 /**
  * Team 18 - CDIO 3 
  * DTU
  * Collaborators:  KasperLeiszner, Bijan Negari, Helene Zgaya, Frederik von Scholten and Troels Lund
  */
 
-
-
+/*
+ * Class wrote by: Troels Lund and Kasper Leiszner
+ */
 
 import desktop_resources.GUI;
 
-public class Gamecontroller {
+public class Gamecontroller 
+{
 
-	private String[] names;
+	//	private String[] names;
 	private Player[] players;
 	private Dicecup cup;
-	private static game.Field[] list = new Fieldlist().getFields();
+	private Fieldlist list = new Fieldlist();
 	private final int maxSum = 3000;
 	private final int startSum = 1000;
 	private static Output out = new Output();
 	private static int numberOfPlayers = 0;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		new Gamecontroller().setup();
 	}
 
-	public void setup(){
-		addplayers();
+	public void setup()
+	{
+		out.drawGameboard(list);
+		out.addplayers(players, startSum);
 		cup = new Dicecup();
-		
-		
-		
-		
-		
+
 		update();
 	}
 
 	public void update(){
-		for(int i=0; i <= (players.length)-1; i++){
-			if(!(players[i].getAccount().getSum() <= 0)){ // not that smart.... :)
-			turn(players[i]);
+		for(int i=0; i <= (players.length)-1; i++)
+		{
+			if(!(players[i].getAccount().getSum() <= 0))
+			{ // not that smart.... :)
+				turn(players[i]);
 			}
-			else {
+			else 
+			{
 				players[i].setBankrupt(true);
 			}
-			if(i >= players.length-1){
+
+			if(i >= players.length-1)
+			{
 				i = -1;
 			}
 		}
 	}
 
 	private void winner(Player p){
-		if(p.getAccount().getSum() >= maxSum){
-			
-			
-			
-			
-			
+		if(p.getAccount().getSum() >= maxSum)
+		{
 			out.winnerPrint(p);
-			
-			
-			
 			out.oneMoreGame();	
-			for(int i=0; i>players.length; i++){
+
+			for(int i=0; i>players.length; i++)
+			{
 				players[i].getAccount().setSum(1000);
 			}
+
 			GUI.close();
 		}
 	}
-	
-	public static int getNumberOfPlayers() {
+
+	public static int getNumberOfPlayers() 
+	{
 		return numberOfPlayers;
 	}
 
 	private void turn(Player p){
 		GUI.removeAllCars(p.getName());
-		
+
 		cup.die1.roll(); 
 		cup.die2.roll();
-		
+
 		out.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
-		
-		list[cup.getSum()-2].landOn(p, cup.getSum()-1);
-		
+
+		list.getFields()[cup.getSum()-2].landOn(p, cup.getSum()-1);
+
 		out.setGUIBalance(p);
 		winner(p);
 	}
-	
-	private void addplayers(){
-		numberOfPlayers = out.howManyPlayers();
-		players = new Player[numberOfPlayers];
-		names = out.setplayerNames();
 
-		for(int i=0; i < players.length; i++){
-			players[i] = new Player(startSum,names[i]);
-		}
-		for(int i=0; i < players.length; i++){
-			GUI.addPlayer(players[i].getName(), players[i].getAccount().getSum());
-		}
+	//	private void addplayers(){
+	//		numberOfPlayers = out.howManyPlayers();
+	//		players = new Player[numberOfPlayers];
+	//		names = out.setplayerNames();
+	//
+	//		for(int i=0; i < players.length; i++){
+	//			players[i] = new Player(startSum,names[i]);
+	//		}
+	//		for(int i=0; i < players.length; i++){
+	//			GUI.addPlayer(players[i].getName(), players[i].getAccount().getSum());
+	//		}
+	//	}
+
+
+	public void creatField()
+	{
+		//	Field[] fields = new Field[11];
+
+
 	}
 
-
-	public void creatField(){
-	Field[] fields = new Field[11];
-
-	
+	public game.Field[] getList() 
+	{
+		return list.getFields();
 	}
 
-	public static game.Field[] getList() {
-		return list;
-	}
-
-	public static Output getOut() {
+	public static Output getOut() 
+	{
 		return out;
 	}
 
 
-	
+
 }
 

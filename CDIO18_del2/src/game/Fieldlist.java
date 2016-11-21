@@ -2,7 +2,7 @@ package game;
 
  public class  Fieldlist 
 {
-	private Field[] fields = new Field[21];
+	private game.Field[] fields = new Field[21];
 
 	public Fieldlist()
 	{
@@ -40,7 +40,7 @@ package game;
 		
 	}
 	
-	public Field[] getFields()
+	public game.Field[] getFields()
 	{
 		return fields;
 	}
