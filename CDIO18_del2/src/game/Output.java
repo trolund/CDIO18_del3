@@ -1,5 +1,7 @@
 package game;
 
+import java.awt.Color;
+
 import desktop_fields.Street;
 import desktop_resources.GUI;
 
@@ -56,6 +58,32 @@ public class Output
 								.build();
 			
 		}
+	}
+		
+	public boolean taxAction(int price){
+		return GUI.getUserLeftButtonPressed("hvad vil du helst?", "Betale " + price , "eller betale 10% af din formue");
+	}
+	
+	public void setGUIDice(int die1 , int die2){
+		GUI.setDice(die1,die2);
+	}
+	
+	public void setGUIBalance(Player p){
+		GUI.setBalance(p.getName(), p.getAccount().getSum());
+	}
+	
+	public void GUIcreateFields(desktop_fields.Field[] f) {	
+		GUI.create(f);
+	}
+	
+	public void setcar(int no, Player p){
+		p.moveCarPos(no);
+		GUI.setCar(p.getCarPos(),p.getName());
+		
+	}
+	
+	public void msgGUI(String s){
+	GUI.showMessage(s);
 	}
 }
 

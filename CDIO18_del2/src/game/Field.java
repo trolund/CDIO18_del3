@@ -4,28 +4,15 @@ import desktop_resources.GUI;
 
 public class Field 
 {
-//	private int no = 0;
-	private int value = 0;
 	private String name = "None";
 	private String description = "";
-	private boolean extraTurn = false;
 	
-	public Field(int value, String name, String description, boolean extraTurn){
-		this( value, name, description);
-		this.extraTurn = extraTurn;
-	}
-	public Field(int value, String name, String description)
+	public Field(String name, String description)
 	{
-		this.value = value;
 		this.name = name;
 		this.description = description;
 	}
-	
-	public int getValue()
-	{
-		return value;
-	}
-	
+
 	public String getName()
 	{
 		return name;
@@ -35,19 +22,29 @@ public class Field
 	{
 		return description;
 	}
+
 	
-	public boolean landOn(Player p, int no){
-		GUI.setCar(no,p.getName());
-		GUI.showMessage(getDescription());
-		p.getAccount().addSum(getValue());
-		GUI.setBalance(p.getName(), p.getAccount().getSum());
-		return extraTurn;
+	public void landOn(Player p, int no){
+		always(p,no);
+		
+
 	}
 	
+
 	public String toString()
 	{
-		return 	"Value: " + value + "\n" + 
-				"Name: " + name + "\n" + 
+		return 	"Name: " + name + "\n" + 
 				"Description: " + description;
 	}
+	
+	public void always(Player p, int no){
+		Gamecontroller.getOut().setcar(no, p);
+		Gamecontroller.getOut().msgGUI(getDescription());
+	}
+
+	public String getValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

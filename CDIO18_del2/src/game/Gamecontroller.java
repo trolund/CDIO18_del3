@@ -1,5 +1,9 @@
 package game;
 
+import java.awt.Color;
+
+import desktop_fields.Street;
+
 /**
  * Team 18 - CDIO 3 
  * DTU
@@ -16,10 +20,10 @@ public class Gamecontroller {
 	private String[] names;
 	private Player[] players;
 	private Dicecup cup;
-	private game.Field[] list = new Fieldlist().getFields();
+	private static game.Field[] list = new Fieldlist().getFields();
 	private final int maxSum = 3000;
 	private final int startSum = 1000;
-	private Output out = new Output();
+	private static Output out = new Output();
 	private static int numberOfPlayers = 0;
 
 	public static void main(String[] args) {
@@ -29,12 +33,17 @@ public class Gamecontroller {
 	public void setup(){
 		addplayers();
 		cup = new Dicecup();
+		
+		
+		
+		
+		
 		update();
 	}
 
 	public void update(){
 		for(int i=0; i <= (players.length)-1; i++){
-			if((!(players[i].getAccount().getSum() <= 0))){ // not that smart.... :)
+			if(!(players[i].getAccount().getSum() <= 0)){ // not that smart.... :)
 			turn(players[i]);
 			}
 			else {
@@ -71,13 +80,15 @@ public class Gamecontroller {
 
 	private void turn(Player p){
 		GUI.removeAllCars(p.getName());
-
-		cup.die1.roll();
+		
+		cup.die1.roll(); 
 		cup.die2.roll();
-
-		if(list[cup.getSum()-2].landOn(p, cup.getSum()-1)){
-			turn(p);
-		}
+		
+		out.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
+		
+		list[cup.getSum()-2].landOn(p, cup.getSum()-1);
+		
+		out.setGUIBalance(p);
 		winner(p);
 	}
 	
@@ -94,8 +105,22 @@ public class Gamecontroller {
 		}
 	}
 
+
+	public void creatField(){
+	Field[] fields = new Field[11];
+
+	
+	}
+
+	public static game.Field[] getList() {
+		return list;
+	}
+
+	public static Output getOut() {
+		return out;
+	}
+
+
+	
 }
-
-
-
 
