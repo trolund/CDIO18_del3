@@ -16,8 +16,13 @@ public class Refuge extends Field
 	}
 
 
-	public int LandOnField()
+	public void LandOn(Player p)
 	{	
-		return bonus;	
+		recieveBonus(p);	
 	}
+	
+	public void recieveBonus(Player p)
+	{
+		p.getAccount().addSum(bonus);
+	}	
 }
