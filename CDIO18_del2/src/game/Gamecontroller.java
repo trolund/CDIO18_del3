@@ -59,19 +59,30 @@ public class Gamecontroller
 	}
 
 	private void winner(Player p){
-		if(p.getAccount().getSum() >= maxSum)
-		{
-			out.winnerPrint(p);
-			out.oneMoreGame();	
-
-			for(int i=0; i>players.length; i++)
-			{
-				players[i].getAccount().setSum(1000);
+		for(int i =0; i < players.length; i++){
+			int con = 0;
+			if(players[i].getBankruptStatus()){
+			con++;
 			}
-
-			GUI.close();
+			
+			if(con-1 == numberOfPlayers){
+				out.winnerPrint(p);
+				GUI.close();
+			}
 		}
-	}
+		
+//		if(p.getAccount().getSum() >= maxSum)
+//		{
+//			out.winnerPrint(p);
+//			out.oneMoreGame();	
+//
+//			for(int i=0; i>players.length; i++)
+//			{
+//				players[i].getAccount().setSum(1000);
+//			}
+
+			
+		}
 
 	public static int getNumberOfPlayers() 
 	{
