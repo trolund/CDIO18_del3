@@ -26,7 +26,7 @@ package game;
 		
 		
 		fields[14] = new Laborcamp("Huts in the mountain", "description", 2500, 100); //100*sumOfDice
-		fields[15] = new Laborcamp("The pit","description", 2500,100); //100*sumOfDice
+		fields[15] = new Laborcamp("The pit","description", 2500, 100); //100*sumOfDice
 		
 		
 		fields[16] = new Tax("Goldmine","description", 2000,0);
