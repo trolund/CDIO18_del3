@@ -15,7 +15,7 @@ private int rent_1=500;
 	
 	public int count(){
 		int con = 0;
-		Field[] list = Gamecontroller.getList();
+//		Field[] list = Gamecontroller.getList();
 		
 		
 		return con;

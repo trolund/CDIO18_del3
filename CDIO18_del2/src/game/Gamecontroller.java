@@ -20,7 +20,7 @@ public class Gamecontroller
 	private Dicecup cup;
 	private static Fieldlist list = new Fieldlist();
 	private final int maxSum = 3000;
-	private final int startSum = 1000;
+	private final int startSum = 30000;
 	private static Output out = new Output();
 	private static int numberOfPlayers = 0;
 
@@ -32,7 +32,8 @@ public class Gamecontroller
 	public void setup()
 	{
 		out.drawGameboard(list);
-		out.addplayers(players, startSum);
+		numberOfPlayers = out.howManyPlayers();
+		players = out.addplayers(players, startSum);
 		cup = new Dicecup();
 
 		update();
@@ -58,19 +59,30 @@ public class Gamecontroller
 	}
 
 	private void winner(Player p){
-		if(p.getAccount().getSum() >= maxSum)
-		{
-			out.winnerPrint(p);
-			out.oneMoreGame();	
-
-			for(int i=0; i>players.length; i++)
-			{
-				players[i].getAccount().setSum(1000);
+		for(int i =0; i < players.length; i++){
+			int con = 0;
+			if(players[i].getBankruptStatus()){
+			con++;
 			}
-
-			GUI.close();
+			
+			if(con-1 == numberOfPlayers){
+				out.winnerPrint(p);
+				GUI.close();
+			}
 		}
-	}
+		
+//		if(p.getAccount().getSum() >= maxSum)
+//		{
+//			out.winnerPrint(p);
+//			out.oneMoreGame();	
+//
+//			for(int i=0; i>players.length; i++)
+//			{
+//				players[i].getAccount().setSum(1000);
+//			}
+
+			
+		}
 
 	public static int getNumberOfPlayers() 
 	{

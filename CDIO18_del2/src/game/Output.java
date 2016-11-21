@@ -27,18 +27,6 @@ public class Output
 		return Integer.parseInt(GUI.getUserSelection(Language.getPlayerCountText(), "2","3","4","5","6")); 
 	}
 	
-	public String[] setplayerNames()
-	{		
-		String[] names = new String[Gamecontroller.getNumberOfPlayers()];
-		
-		for(int i = 0; i < names.length; i++)
-		{
-			names[i] = GUI.getUserString(Language.getNameOfPlayer() + " " + i);
-		}
-		
-		return names; 
-	}
-
 	public void turnMsg(int nr, Player p, String s)
 	{
 		GUI.setCar(nr,p.getName());
@@ -50,8 +38,6 @@ public class Output
 		game.Field[] logicField = fd.getFields();
 		desktop_fields.Field[] guiField = new desktop_fields.Field[logicField.length];
 
-		GUI.create(guiField);
-
 		for (int i = 0; i < logicField.length; i++) 
 		{
 			guiField[i] = new Street.Builder()
@@ -60,6 +46,8 @@ public class Output
 								.build();
 			
 		}
+		
+		GUI.create(guiField);
 	}
 		
 	public boolean taxAction(int price){
@@ -88,19 +76,23 @@ public class Output
 	GUI.showMessage(s);
 	}
 	
-	public void addplayers(Player[] players, int startSum)
+	public Player[] addplayers(Player[] players, int startSum)
 	{
-		players = new Player[howManyPlayers()];
-
+		String name = "";
+		players = new Player[Gamecontroller.getNumberOfPlayers()];
+		
 		for(int i=0; i < players.length; i++)
 		{
-			players[i] = new Player(startSum,setplayerNames()[i]);
+			name = GUI.getUserString(Language.getNameOfPlayer() + " " + (i+1));
+			players[i] = new Player(startSum,name);
 		}
 		
 		for(int i=0; i < players.length; i++)
 		{
 			GUI.addPlayer(players[i].getName(), players[i].getAccount().getSum());
 		}
+		
+		return players;
 	}
 }
 
