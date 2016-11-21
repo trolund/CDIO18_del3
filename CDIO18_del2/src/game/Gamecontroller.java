@@ -18,7 +18,7 @@ public class Gamecontroller
 	//	private String[] names;
 	private Player[] players;
 	private Dicecup cup;
-	private Fieldlist list = new Fieldlist();
+	private static Fieldlist list = new Fieldlist();
 	private final int maxSum = 3000;
 	private final int startSum = 1000;
 	private static Output out = new Output();
@@ -85,12 +85,12 @@ public class Gamecontroller
 
 		out.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
 
-		list.getFields()[cup.getSum()-2].landOn(p, cup.getSum()-1);
+		list.getFields()[cup.getSum()-1].landOn(p, cup.getSum());
 
 		out.setGUIBalance(p);
 		winner(p);
 	}
-
+	
 	//	private void addplayers(){
 	//		numberOfPlayers = out.howManyPlayers();
 	//		players = new Player[numberOfPlayers];
@@ -112,7 +112,7 @@ public class Gamecontroller
 
 	}
 
-	public game.Field[] getList() 
+	public static game.Field[] getList() 
 	{
 		return list.getFields();
 	}
@@ -121,7 +121,6 @@ public class Gamecontroller
 	{
 		return out;
 	}
-
 
 
 }
