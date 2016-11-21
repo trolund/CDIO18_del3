@@ -27,18 +27,6 @@ public class Output
 		return Integer.parseInt(GUI.getUserSelection(Language.getPlayerCountText(), "2","3","4","5","6")); 
 	}
 	
-	public String[] setplayerNames()
-	{		
-		String[] names = new String[Gamecontroller.getNumberOfPlayers()];
-		
-		for(int i = 0; i < names.length; i++)
-		{
-			names[i] = GUI.getUserString(Language.getNameOfPlayer() + " " + i);
-		}
-		
-		return names; 
-	}
-
 	public void turnMsg(int nr, Player p, String s)
 	{
 		GUI.setCar(nr,p.getName());
@@ -90,11 +78,13 @@ public class Output
 	
 	public Player[] addplayers(Player[] players, int startSum)
 	{
+		String name = "";
 		players = new Player[Gamecontroller.getNumberOfPlayers()];
-
+		
 		for(int i=0; i < players.length; i++)
 		{
-			players[i] = new Player(startSum,setplayerNames()[i]);
+			name = GUI.getUserString(Language.getNameOfPlayer() + " " + (i+1));
+			players[i] = new Player(startSum,name);
 		}
 		
 		for(int i=0; i < players.length; i++)
