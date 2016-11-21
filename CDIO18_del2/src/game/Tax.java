@@ -19,25 +19,29 @@ public class Tax extends Field {
 		this.taxRate = taxRate;
 	}
 
-	public void LandOnField(Player p)
+	public void LandOn(Player p)
 	{
 		payTax(p);
 	}
-	
+
 	public void payTax(Player p)
 	{
-		
-		if(out.taxAction(taxAmmount))
+		if(p.getCarPos() == 17)
 		{
-			p.getAccount().withdraw(taxAmmount);
+
+			if(out.taxAction(taxAmmount))
+			{
+				p.getAccount().withdraw(taxAmmount);
+			}
+			else
+			{
+				 p.getAccount().withdraw( (int) (p.getAccount().getSum() * ((100-taxRate)/100)));
+			}
+
 		}
 		else
 		{
-				p.getAccount().withdraw((int) (p.getAccount().getSum() * (taxRate/100)));
+			p.getAccount().withdraw(taxAmmount);
 		}
 	}
-	
-	
-	
-	
 }
