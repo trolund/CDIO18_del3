@@ -15,12 +15,6 @@ public abstract class Ownable extends Field
 		this.price = price;
 		this.rent = rent;
 	}
-
-
-	public Player getOwner()
-	{
-		return owner;
-	}
 	
 	public void landOn(Player p, int no, Output out){
 		always(p,no,out);
@@ -44,22 +38,26 @@ public abstract class Ownable extends Field
 		}
 	}
 
-
-	public Boolean getIsOwned() {
-		return isOwned;
-	}
-
-
-	public void setIsOwned(Boolean isOwned) {
-		this.isOwned = isOwned;
-	}
-
-
-	public void setOwner(Player owner) {
+	public void setOwner(Player owner) 
+	{
 		this.owner = owner;
 		this.isOwned = true;
 	}	
+	
+	public Player getOwner()
+	{
+		return owner;
+	}
+	
+//	public Boolean getIsOwned() {
+//	return isOwned;
+//}
 
+
+//public void setIsOwned(Boolean isOwned) {
+//	this.isOwned = isOwned;
+//}
+	
 //	public void LandOn(Player p)
 //	{
 //		if(ownable(p))
