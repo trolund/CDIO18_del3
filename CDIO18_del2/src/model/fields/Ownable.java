@@ -18,7 +18,7 @@ public abstract class Ownable extends Field
 
 	@Override
 	public void landOn(Player p){
-		if(p.getAccount().getSum()>=price && owner == null)
+		if(p.getAccount().getSum()>=price && owner == null && Output.shop(price, p))
 		{
 			// can buy
 			setOwner(p);
@@ -31,8 +31,6 @@ public abstract class Ownable extends Field
 		{
 			// cant affort
 			Output.deniedPurchase();
-
-
 		}
 		else // is owned
 		{

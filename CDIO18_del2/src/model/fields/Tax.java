@@ -13,7 +13,6 @@ public class Tax extends Field {
 
 	private int taxAmmount;
 	private int taxRate;
-	private Output out = new Output();
 
 	public Tax(String name, String description, int taxAmmount, int taxRate) 
 	{
@@ -27,7 +26,7 @@ public class Tax extends Field {
 	{
 		if(taxRate > 0)
 		{
-			if(out.taxAction(taxAmmount))
+			if(Output.taxAction(taxAmmount))
 			{
 				p.getAccount().withdraw(taxAmmount);
 			}

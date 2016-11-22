@@ -16,7 +16,8 @@ public class Laborcamp extends Ownable
 	}
 
 	@Override
-	public int getRent(Player p) {
+	public int getRent(Player p) 
+	{
 		Dicecup cup = new Dicecup();
 		cup.getDie1().roll();
 		cup.getDie2().roll();
