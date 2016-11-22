@@ -20,13 +20,10 @@ import view.Output;
 public class Gamecontroller 
 {
 
-	//	private String[] names;
 	private Player[] players;
 	private Dicecup cup;
 	private Fieldlist list = new Fieldlist();
-	private final int maxSum = 3000;
 	private final int startSum = 30000;
-	private Output out = new Output();
 	private static int numberOfPlayers = 0;
 	private boolean testMode = false;
 
@@ -37,29 +34,29 @@ public class Gamecontroller
 
 	public void setup()
 	{
-		out.drawGameboard(list);
-		testMode = out.setTestMode(); 	// Giver spilleren mulighed for at gå i test mode og tildeler til testMode boolean
-		
+		Output.drawGameboard(list);
+		testMode = Output.setTestMode(); 	// Giver spilleren mulighed for at gå i test mode og tildeler til testMode boolean
+
 		if(testMode){ // Kode der bliver kørt vis programmet er i test mode!
 			cup = new FakeDicecup();
 		}
 		else{
 			cup = new Dicecup();
 		}
-		numberOfPlayers = out.howManyPlayers();
-		players = out.addplayers(players, startSum);
-		
+		numberOfPlayers = Output.howManyPlayers();
+		players = Output.addplayers(players, startSum);
+
 		for(int i = 0; i < players.length; i++){
-			out.setcar(1,players[i]);
+			Output.setcar(1,players[i]);
 		}
-		
+
 		update();
-		
+
 	}
 
 	public void update(){
-		
-		
+
+
 		for(int i=0; i <= (players.length)-1; i++)
 		{
 			if(!(players[i].getAccount().getSum() <= 0))
@@ -82,27 +79,16 @@ public class Gamecontroller
 		for(int i =0; i < players.length; i++){
 			int con = 0;
 			if(players[i].getBankruptStatus()){
-			con++;
+				con++;
 			}
-			
+
 			if(con-1 == numberOfPlayers){
-				out.winnerPrint(p);
+				Output.winnerPrint(p);
 				GUI.close();
 			}
 		}
-		
-//		if(p.getAccount().getSum() >= maxSum)
-//		{
-//			out.winnerPrint(p);
-//			out.oneMoreGame();	
-//
-//			for(int i=0; i>players.length; i++)
-//			{
-//				players[i].getAccount().setSum(1000);
-//			}
 
-			
-		}
+	}
 
 	public static int getNumberOfPlayers() 
 	{
@@ -111,41 +97,19 @@ public class Gamecontroller
 
 	private void turn(Player p){
 		GUI.removeAllCars(p.getName());
-		
+
 		cup.die1.roll(); 
 		cup.die2.roll();
 
 		list.getFields()[cup.getSum()-1].landOn(p, cup.getSum(), list, out, cup);
-		
-		out.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
-		out.msgGUI(list.getFields()[cup.getSum()-1].getDescription());
-		out.setcar(cup.getSum(), p);
-		
-		out.setGUIBalance(p);
+
+		Output.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
+		Output.msgGUI(list.getFields()[cup.getSum()-1].getDescription());
+		Output.setcar(cup.getSum(), p);
+
+		Output.setGUIBalance(p);
 		winner(p);
 	}
-	
-	//	private void addplayers(){
-	//		numberOfPlayers = out.howManyPlayers();
-	//		players = new Player[numberOfPlayers];
-	//		names = out.setplayerNames();
-	//
-	//		for(int i=0; i < players.length; i++){
-	//			players[i] = new Player(startSum,names[i]);
-	//		}
-	//		for(int i=0; i < players.length; i++){
-	//			GUI.addPlayer(players[i].getName(), players[i].getAccount().getSum());
-	//		}
-	//	}
-
-
-	public void creatField()
-	{
-		//	Field[] fields = new Field[11];
-
-
-	}
-
 
 
 }

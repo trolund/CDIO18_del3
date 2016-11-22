@@ -15,7 +15,7 @@ public abstract class Ownable extends Field
 		super(name, description);
 		this.price = price;
 	}
-	
+
 	@Override
 	public void landOn(Player p){
 		if(p.getAccount().getSum()>=price && owner == null)
@@ -24,21 +24,22 @@ public abstract class Ownable extends Field
 			setOwner(p);
 			p.setLaborcampCount(p.getLaborcampCount());
 			p.getAccount().withdraw(price);
-			out.verificationOfPurchase();
-		
+			Output.verificationOfPurchase();
+
 		}
 		else if(p.getAccount().getSum() < price && owner == null)
 		{
 			// cant affort
-			
-			
+			Output.deniedPurchase();
+
+
 		}
 		else // is owned
 		{
 			// Pay rent
 			p.getAccount().withdraw(getRent(p));
 			owner.getAccount().addSum(getRent(p));
-			
+
 		}
 	}
 
@@ -48,26 +49,26 @@ public abstract class Ownable extends Field
 	{
 		this.owner = owner;
 	}	
-	
+
 	public Player getOwner()
 	{
 		return owner;
 	}
-	
-//	public Boolean getIsOwned() {
-//	return isOwned;
-//}
+
+	//	public Boolean getIsOwned() {
+	//	return isOwned;
+	//}
 
 
-//public void setIsOwned(Boolean isOwned) {
-//	this.isOwned = isOwned;
-//}
-	
-//	public void LandOn(Player p)
-//	{
-//		if(ownable(p))
-//		{
-//			Gamecontroller.getOut().taxAction(price);	
-//		}
-//	}
+	//public void setIsOwned(Boolean isOwned) {
+	//	this.isOwned = isOwned;
+	//}
+
+	//	public void LandOn(Player p)
+	//	{
+	//		if(ownable(p))
+	//		{
+	//			Gamecontroller.getOut().taxAction(price);	
+	//		}
+	//	}
 }
