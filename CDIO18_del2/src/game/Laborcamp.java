@@ -7,7 +7,7 @@ public class Laborcamp extends Ownable
 		super(name, description, price, rent);
 	}
 
-	public int landOn(Player p, int no, Output out, Fieldlist list, Dicecup cup)
+	public void landOn(Player p, int no, Output out, Fieldlist list, Dicecup cup)
 	{
 		int rolledSum;
 		int laborCount = 0;
@@ -32,11 +32,14 @@ public class Laborcamp extends Ownable
 				laborCount = 1;
 			}
 			
-			return rolledSum*100*laborCount;
+			p.getAccount().withdraw(rolledSum*100*laborCount);
 		}
 		else
 		{
-			return 0;
+			if(labor[2].ownable(p))
+			{
+				out.shop(price, p);
+			}
 		}
 	}
 }
