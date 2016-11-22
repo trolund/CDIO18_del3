@@ -1,20 +1,20 @@
 package model;
 
 public class Player {
-	
+
 	private String name;
 	private BankAccount account;
 	private boolean bankrupt = false;
 	private int carPos = 0;
 	private int laborCount = 0;
 	private int fleetCount = 0;
-	
+
 	public Player(int balance, String name) {
 		this.name = name;
 		account = new BankAccount(balance);
 	}	
-	
-	
+
+
 	public BankAccount getAccount() {
 		return account;
 	}
@@ -42,13 +42,16 @@ public class Player {
 	public void setCarPos(int carPos) {
 		this.carPos = carPos;
 	}
-	
-	public void moveCarPos(int carPos) {
-		if(this.carPos + carPos > 21){
+
+	public void moveCarPos(int carPos) 
+	{
+		if(this.carPos + carPos > 21)
+		{
 			this.carPos = (this.carPos + carPos) - 21;
 		}
-		else{
-		this.carPos += carPos;
+		else
+		{
+			this.carPos += carPos;
 		}
 	}
 
@@ -56,17 +59,17 @@ public class Player {
 	{
 		laborCount = newCount;
 	}
-	
+
 	public int getLaborcampCount()
 	{
 		return laborCount;
 	}
-	
+
 	public void setFleetCount(int newCount)
 	{
 		fleetCount = newCount;
 	}
-	
+
 	public int getFleetCount()
 	{
 		return fleetCount;
