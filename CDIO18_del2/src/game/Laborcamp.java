@@ -9,40 +9,36 @@ public class Laborcamp extends Ownable
 		super(name, description, price, rent);
 	}
 
-
-	public int getRent(Player p, Output out, Fieldlist list)
+	public int landOn(Player p, int no, Output out, Fieldlist list, Dicecup cup)
 	{
-		Dicecup cup = new Dicecup();
+		int rolledSum;
+		int laborCount = 0;
+		Laborcamp[] labor = new Laborcamp[3];
+		
+		always(p, no, out);
+		labor[0] = (Laborcamp) list.getFields()[14];
+		labor[1] = (Laborcamp) list.getFields()[15];
+		labor[2] = (Laborcamp) list.getFields()[no];
 		cup.die1.roll();
 		cup.die2.roll();
-		out.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
-		Fieldlist fieldlist = list;
-
-		Laborcamp[] laborList = new Laborcamp[2];
-		System.arraycopy(fieldlist, 14, laborList, 15, 2);
-
-		if(laborList[1].getOwner().equals(laborList[2].getOwner()))
+		rolledSum = cup.getSum();
+		
+		if(labor[2].getOwner() != p)
 		{
-			return rent * 2 * cup.getSum();
+			if(labor[0].getOwner() == labor[1].getOwner())
+			{
+				laborCount = 2;
+			}
+			else
+			{
+				laborCount = 1;
+			}
+			
+			return rolledSum*100*laborCount;
 		}
-		else if(laborList[1].getOwner().equals(p) || laborList[2].getOwner().equals(p))
+		else
 		{
-			return rent * cup.getSum();
+			return 0;
 		}
-	}
-
-	public void landOn(Player p,int no, Output out, Fieldlist list)
-	{
-		always(p,no,out);
-		if(!(ownable(p))){
-			getRent(p, out, list);
-		}
-
-
-	}
-
-	public void payRent(Player p)
-	{
-
 	}
 }
