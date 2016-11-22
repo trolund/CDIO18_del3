@@ -101,7 +101,7 @@ public class Gamecontroller
 		cup.die1.roll(); 
 		cup.die2.roll();
 
-		list.getFields()[cup.getSum()-1].landOn(p, cup.getSum(), list, out, cup);
+		list.getFields()[cup.getSum()-1].landOn(p);
 
 		Output.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
 		Output.msgGUI(list.getFields()[cup.getSum()-1].getDescription());
