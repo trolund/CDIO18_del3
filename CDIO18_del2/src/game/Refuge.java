@@ -16,7 +16,7 @@ public class Refuge extends Field
 	}
 
 
-	public void LandOn(Player p)
+	public void landOn(Player p)
 	{	
 		recieveBonus(p);	
 	}

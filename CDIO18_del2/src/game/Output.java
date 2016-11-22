@@ -95,8 +95,8 @@ public class Output
 		return players;
 	}
 	
-	public boolean shop(int price){
-		return GUI.getUserLeftButtonPressed("Vil du købe feltet for: " + price, "Fortag køb", "Afslå køb");
+	public boolean shop(int price, Player p){
+		return GUI.getUserLeftButtonPressed(p.getName() + " Vil du købe feltet for: " + price, "Fortag køb", "Afslå køb");
 	}
 	
 	public boolean setTestMode(){

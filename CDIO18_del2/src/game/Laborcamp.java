@@ -10,13 +10,13 @@ public class Laborcamp extends Ownable
 	}
 
 
-	public int getRent(Player p)
+	public int getRent(Player p, Output out, Fieldlist list)
 	{
 		Dicecup cup = new Dicecup();
 		cup.die1.roll();
 		cup.die2.roll();
-		Gamecontroller.getOut().setGUIDice(cup.die1.getValue(), cup.die2.getValue());
-		Field[] fieldlist = Gamecontroller.getList();
+		out.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
+		Fieldlist fieldlist = list;
 
 		Laborcamp[] laborList = new Laborcamp[2];
 		System.arraycopy(fieldlist, 14, laborList, 15, 2);
@@ -31,10 +31,11 @@ public class Laborcamp extends Ownable
 		}
 	}
 
-	public void LandOn(Player p)
+	public void landOn(Player p,int no, Output out, Fieldlist list)
 	{
+		always(p,no,out);
 		if(!(ownable(p))){
-			getRent(p);
+			getRent(p, out, list);
 		}
 
 

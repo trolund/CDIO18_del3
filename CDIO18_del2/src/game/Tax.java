@@ -19,8 +19,9 @@ public class Tax extends Field {
 		this.taxRate = taxRate;
 	}
 
-	public void LandOn(Player p)
-	{
+	public void landOn(Player p, int no, Output out){
+	always(p,no,out);
+	
 		payTax(p);
 	}
 

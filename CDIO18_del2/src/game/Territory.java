@@ -8,10 +8,10 @@ public class Territory extends Ownable
 	}
 
 	
-	public void LandOn(Player p, int no, Fieldlist fl, Output out){
-		
+	public void landOn(Player p, int no, Fieldlist fl, Output out){
+		always(p,no,out);
 		if(ownable(p)){
-			if(out.shop(price)){
+			if(out.shop(price,p)){
 				setOwner(p);
 			}
 		}
@@ -19,7 +19,7 @@ public class Territory extends Ownable
 			p.getAccount().withdraw(price);
 			getOwner().getAccount().addSum(price);
 		}
-		always(p,no,out);
+		
 	}
 	
 	
