@@ -46,6 +46,7 @@ public class Output
 		{
 			guiField[i] = new Street.Builder()
 					.setTitle(logicField[i].getName())
+					.setDescription(logicField[i].getDescription())
 					.setRent("" + logicField[i].getValue())
 					.build();
 
@@ -55,7 +56,7 @@ public class Output
 	}
 
 	public static boolean taxAction(int price){
-		return GUI.getUserLeftButtonPressed("hvad vil du helst?", "Betale " + price , "eller betale 10% af din formue");
+		return GUI.getUserLeftButtonPressed(Language.getMakeYourChoiceMSG(), Language.getPayMSG() + " " + price , Language.getTenPercent());
 	}
 
 	public static void setGUIDice(int die1 , int die2){
@@ -102,7 +103,7 @@ public class Output
 	}
 
 	public static boolean shop(int price, Player p){
-		return GUI.getUserLeftButtonPressed(p.getName() + " Vil du købe feltet for: " + price, "Fortag køb", "Afslå køb");
+		return GUI.getUserLeftButtonPressed(p.getName() + " " + Language.getWillYouBuy() + " " + price, Language.getYesNo()[0], Language.getYesNo()[1]);
 	}
 
 	public static boolean setTestMode(){

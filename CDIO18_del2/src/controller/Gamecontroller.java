@@ -58,6 +58,8 @@ public class Gamecontroller
 		{
 			for(int i=0; i < players.length; i++)
 			{
+				winner(players[i]);
+				
 				if(!(players[i].getAccount().getSum() <= 0))
 				{
 					turn(players[i]);
@@ -66,8 +68,6 @@ public class Gamecontroller
 				{
 					players[i].setBankrupt(true);
 				}
-				
-				winner(players[i]);
 			}
 		}
 	}

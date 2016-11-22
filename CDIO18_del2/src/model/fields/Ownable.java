@@ -19,12 +19,23 @@ public abstract class Ownable extends Field
 	@Override
 	public void landOn(Player p)
 	{
-		if(p.getAccount().getSum()>=price && owner == null && Output.shop(price, p))
+		boolean wantToBuy = Output.shop(price, p);
+		
+		if(p.getAccount().getSum()>=price && owner == null && wantToBuy)
 		{
 			// can buy
 			Output.setColor(p.getCarPos(), p);
 			setOwner(p);
-			p.setLaborcampCount(p.getLaborcampCount());
+			
+			if(p.getCarPos() == 14 || p.getCarPos() == 15) //Magic numbers!!! Wooo!!! Det skal være færdigt nu :D
+			{
+				p.setLaborcampCount(p.getLaborcampCount() + 1);
+			}
+			else
+			{
+				p.setFleetCount(p.getFleetCount() + 1);
+			}
+				
 			p.getAccount().withdraw(price);
 			Output.verificationOfPurchase();
 		}
@@ -33,12 +44,15 @@ public abstract class Ownable extends Field
 			// cant affort
 			Output.deniedPurchase();
 		}
+		else if(p.getAccount().getSum()>=price && owner == null && !wantToBuy)
+		{
+			Output.deniedPurchase();
+		}
 		else // is owned
 		{
 			// Pay rent
 			p.getAccount().withdraw(getRent(p));
 			owner.getAccount().addSum(getRent(p));
-
 		}
 	}
 
