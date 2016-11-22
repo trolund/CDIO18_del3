@@ -33,6 +33,11 @@ public class Language
 	private static String endText = "One more game?";
 	private static String playerCountText = "How many players?";
 	private static String nameOfPlayer = "Name of player";
+	private static String butName = "Roll the dice";
+	
+	// test mode Strings
+	static String testString[] = {"Test mode options","Run Test Mode","Run Normal Game"};
+
 	
 	public static String getPlayerCountText()
 	{
@@ -57,5 +62,12 @@ public class Language
 	public static String[] getFieldNames()
 	{
 		return fieldInfo;
+	}
+	
+	public static String rollButName(){
+		return butName;
+	}
+	public static String testModeStrings(int x){
+		return testString[x];
 	}
 }

@@ -73,7 +73,8 @@ public class Output
 	}
 	
 	public void msgGUI(String s){
-	GUI.showMessage(s);
+//	GUI.showMessage(s);
+	GUI.getUserButtonPressed(s, Language.rollButName());
 	}
 	
 	public Player[] addplayers(Player[] players, int startSum)
@@ -100,7 +101,7 @@ public class Output
 	}
 	
 	public boolean setTestMode(){
-		return GUI.getUserLeftButtonPressed("Test mode options", "Run Test Mode", "Run Normal Game");
+		return GUI.getUserLeftButtonPressed(Language.testModeStrings(0),Language.testModeStrings(1),Language.testModeStrings(2));
 	}
 }
 
