@@ -17,15 +17,16 @@ public abstract class Ownable extends Field
 	}
 
 	@Override
-	public void landOn(Player p){
+	public void landOn(Player p)
+	{
 		if(p.getAccount().getSum()>=price && owner == null && Output.shop(price, p))
 		{
 			// can buy
+			Output.setColor(p.getCarPos(), p);
 			setOwner(p);
 			p.setLaborcampCount(p.getLaborcampCount());
 			p.getAccount().withdraw(price);
 			Output.verificationOfPurchase();
-
 		}
 		else if(p.getAccount().getSum() < price && owner == null)
 		{
@@ -52,21 +53,4 @@ public abstract class Ownable extends Field
 	{
 		return owner;
 	}
-
-	//	public Boolean getIsOwned() {
-	//	return isOwned;
-	//}
-
-
-	//public void setIsOwned(Boolean isOwned) {
-	//	this.isOwned = isOwned;
-	//}
-
-	//	public void LandOn(Player p)
-	//	{
-	//		if(ownable(p))
-	//		{
-	//			Gamecontroller.getOut().taxAction(price);	
-	//		}
-	//	}
 }
