@@ -2,7 +2,7 @@ package game;
 
 public abstract class Ownable extends Field
 {
-	private int price;
+	protected int price;
 	private int rent;
 	private Boolean isOwned = false; 
 	private Player owner;
@@ -21,7 +21,10 @@ public abstract class Ownable extends Field
 	{
 		return owner;
 	}
-
+	
+	public void landOn(Player p, int no, Output out){
+		always(p,no,out);
+	}
 
 	public Boolean ownable (Player p)
 	{
@@ -39,6 +42,22 @@ public abstract class Ownable extends Field
 			owner.getAccount().addSum(rent);
 			return false;
 		}
+	}
+
+
+	public Boolean getIsOwned() {
+		return isOwned;
+	}
+
+
+	public void setIsOwned(Boolean isOwned) {
+		this.isOwned = isOwned;
+	}
+
+
+	public void setOwner(Player owner) {
+		this.owner = owner;
+		this.isOwned = true;
 	}	
 
 //	public void LandOn(Player p)

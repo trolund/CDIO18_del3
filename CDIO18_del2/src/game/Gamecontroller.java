@@ -11,6 +11,7 @@ package game;
  */
 
 import desktop_resources.GUI;
+import tests.FakeDicecup;
 
 public class Gamecontroller 
 {
@@ -18,11 +19,12 @@ public class Gamecontroller
 	//	private String[] names;
 	private Player[] players;
 	private Dicecup cup;
-	private static Fieldlist list = new Fieldlist();
+	private Fieldlist list = new Fieldlist();
 	private final int maxSum = 3000;
 	private final int startSum = 30000;
-	private static Output out = new Output();
+	private Output out = new Output();
 	private static int numberOfPlayers = 0;
+	private boolean testMode = false;
 
 	public static void main(String[] args) 
 	{
@@ -32,10 +34,16 @@ public class Gamecontroller
 	public void setup()
 	{
 		out.drawGameboard(list);
+		testMode = out.setTestMode(); 	// Giver spilleren mulighed for at gå i test mode og tildeler til testMode boolean
+		
+		if(testMode){ // Kode der bliver kørt vis programmet er i test mode!
+			cup = new FakeDicecup();
+		}
+		else{
+			cup = new Dicecup();
+		}
 		numberOfPlayers = out.howManyPlayers();
 		players = out.addplayers(players, startSum);
-		cup = new Dicecup();
-
 		update();
 	}
 
@@ -97,7 +105,7 @@ public class Gamecontroller
 
 		out.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
 
-		list.getFields()[cup.getSum()-1].landOn(p, cup.getSum());
+		list.getFields()[cup.getSum()-1].landOn(p, cup.getSum(), list, out);
 
 		out.setGUIBalance(p);
 		winner(p);
@@ -124,15 +132,6 @@ public class Gamecontroller
 
 	}
 
-	public static game.Field[] getList() 
-	{
-		return list.getFields();
-	}
-
-	public static Output getOut() 
-	{
-		return out;
-	}
 
 
 }

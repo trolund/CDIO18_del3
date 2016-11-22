@@ -94,6 +94,14 @@ public class Output
 		
 		return players;
 	}
+	
+	public boolean shop(int price){
+		return GUI.getUserLeftButtonPressed("Vil du købe feltet for: " + price, "Fortag køb", "Afslå køb");
+	}
+	
+	public boolean setTestMode(){
+		return GUI.getUserLeftButtonPressed("Test mode options", "Run Test Mode", "Run Normal Game");
+	}
 }
 
 
