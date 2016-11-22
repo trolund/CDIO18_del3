@@ -18,10 +18,10 @@ public class Laborcamp extends Ownable
 	@Override
 	public int getRent(Player p) {
 		Dicecup cup = new Dicecup();
-		cup.die1.roll();
-		cup.die2.roll();
+		cup.getDie1().roll();
+		cup.getDie2().roll();
 		int sum = cup.getSum();
-		Output.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
+		Output.setGUIDice(cup.getDie1().getValue(), cup.getDie2().getValue());
 		return sum * baseRent * p.getLaborcampCount();
 	}
 

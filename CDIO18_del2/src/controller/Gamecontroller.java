@@ -4,6 +4,17 @@ package controller;
  * Team 18 - CDIO 3 
  * DTU
  * Collaborators:  KasperLeiszner, Bijan Negari, Helene Zgaya, Frederik von Scholten and Troels Lund
+ *      ___           ___                       ___              
+ *     /\  \         /\  \          ___        /\  \             
+ *    /::\  \       /::\  \        /\  \      /::\  \            
+ *   /:/\:\  \     /:/\:\  \       \:\  \    /:/\:\  \           
+ *  /:/  \:\  \   /:/  \:\__\      /::\__\  /:/  \:\  \          
+ * /:/__/ \:\__\ /:/__/ \:|__|  __/:/\/__/ /:/__/ \:\__\         
+ * \:\  \  \/__/ \:\  \ /:/  / /\/:/  /    \:\  \ /:/  /         
+ *  \:\  \        \:\  /:/  /  \::/__/      \:\  /:/  /          
+ *   \:\  \        \:\/:/  /    \:\__\       \:\/:/  /           
+ *    \:\__\        \::/__/      \/__/        \::/  /            
+ *     \/__/         ~~                        \/__/             
  */
 
 /*
@@ -98,12 +109,12 @@ public class Gamecontroller
 	private void turn(Player p){
 		GUI.removeAllCars(p.getName());
 
-		cup.die1.roll(); 
-		cup.die2.roll();
+		cup.getDie1().roll(); 
+		cup.getDie2().roll();
 
 		list.getFields()[cup.getSum()-1].landOn(p);
 
-		Output.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
+		Output.setGUIDice(cup.getDie1().getValue(), cup.getDie2().getValue());
 		Output.msgGUI(list.getFields()[cup.getSum()-1].getDescription());
 		Output.setcar(cup.getSum(), p);
 
