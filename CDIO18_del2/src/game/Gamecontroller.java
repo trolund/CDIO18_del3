@@ -105,7 +105,7 @@ public class Gamecontroller
 
 		out.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
 
-		list.getFields()[cup.getSum()-1].landOn(p, cup.getSum(), list, out);
+		list.getFields()[cup.getSum()-1].landOn(p, cup.getSum(), list, out, cup);
 
 		out.setGUIBalance(p);
 		winner(p);

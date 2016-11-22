@@ -21,6 +21,9 @@ public class Field
 		return description;
 	}
 
+	public void landOn(Player p, int no, Fieldlist list, Output out, Dicecup cup){
+		always(p,no,out);
+	}
 	
 	public void landOn(Player p, int no, Fieldlist list, Output out){
 		always(p,no,out);
