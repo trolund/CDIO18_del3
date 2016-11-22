@@ -13,11 +13,12 @@ public class Territory extends Ownable
 		if(ownable(p)){
 			if(out.shop(price,p)){
 				setOwner(p);
+				p.getAccount().withdraw(price);
 			}
 		}
 		else{
-			p.getAccount().withdraw(price);
-			getOwner().getAccount().addSum(price);
+			p.getAccount().withdraw(rent);
+			getOwner().getAccount().addSum(rent);
 		}
 		
 	}

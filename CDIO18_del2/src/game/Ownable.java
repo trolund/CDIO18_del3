@@ -3,7 +3,7 @@ package game;
 public abstract class Ownable extends Field
 {
 	protected int price;
-	private int rent;
+	protected int rent;
 	private Boolean isOwned = false; 
 	private Player owner;
 
