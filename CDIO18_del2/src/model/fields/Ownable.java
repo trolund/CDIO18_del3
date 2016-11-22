@@ -21,13 +21,17 @@ public abstract class Ownable extends Field
 		if(p.getAccount().getSum()>=price && owner == null)
 		{
 			// can buy
-			TODO
+			setOwner(p);
+			p.setLaborcampCount(p.getLaborcampCount());
+			p.getAccount().withdraw(price);
+			out.verificationOfPurchase();
 		
 		}
 		else if(p.getAccount().getSum() < price && owner == null)
 		{
 			// cant affort
-			TODO
+			
+			
 		}
 		else // is owned
 		{

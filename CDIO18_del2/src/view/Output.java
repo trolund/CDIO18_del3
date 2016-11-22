@@ -107,6 +107,11 @@ public class Output
 	public boolean setTestMode(){
 		return GUI.getUserLeftButtonPressed(Language.testModeStrings(0),Language.testModeStrings(1),Language.testModeStrings(2));
 	}
+	
+	public static void verificationOfPurchase(){
+		GUI.showMessage(Language.purchaseString());
+		
+	}
 }
 
 

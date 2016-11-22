@@ -35,6 +35,8 @@ public class Language
 	private static String nameOfPlayer = "Name of player";
 	private static String butName = "Roll the dice";
 	
+	private static String purchase = "purchase confirmed";
+	
 	// test mode Strings
 	static String testString[] = {"Test mode options","Run Test Mode","Run Normal Game"};
 
@@ -69,5 +71,10 @@ public class Language
 	}
 	public static String testModeStrings(int x){
 		return testString[x];
+	}
+	
+	public static String purchaseString(){
+		return purchase;
+		
 	}
 }
