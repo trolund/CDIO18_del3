@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.Die;
+import model.Die;
 
 public class JUnitTestDie {
 

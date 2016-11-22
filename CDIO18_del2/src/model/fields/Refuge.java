@@ -1,4 +1,6 @@
-package game;
+package model.fields;
+
+import model.Player;
 
 /**
  * 
@@ -15,14 +17,11 @@ public class Refuge extends Field
 		this.bonus = bonus;
 	}
 
-
+	@Override
 	public void landOn(Player p)
 	{	
-		recieveBonus(p);	
+		p.getAccount().addSum(bonus);
 	}
 	
-	public void recieveBonus(Player p)
-	{
-		p.getAccount().addSum(bonus);
-	}	
+	
 }

@@ -1,47 +1,48 @@
-package game;
+package model.fields;
+
+import model.Player;
+import view.Output;
 
 public abstract class Ownable extends Field
 {
 	protected int price;
-	protected int rent;
-	private Boolean isOwned = false; 
 	private Player owner;
 
 
 
-	public Ownable (String name, String description, int price, int rent)
+	public Ownable (String name, String description, int price)
 	{
 		super(name, description);
 		this.price = price;
-		this.rent = rent;
 	}
 	
-	public void landOn(Player p, int no, Output out){
-		always(p,no,out);
+	@Override
+	public void landOn(Player p){
+		if(p.getAccount().getSum()>=price && owner == null)
+		{
+			// can buy
+			TODO
+		
+		}
+		else if(p.getAccount().getSum() < price && owner == null)
+		{
+			// cant affort
+			TODO
+		}
+		else // is owned
+		{
+			// Pay rent
+			p.getAccount().withdraw(getRent(p));
+			owner.getAccount().addSum(getRent(p));
+			
+		}
 	}
 
-	public Boolean ownable (Player p)
-	{
-		if(p.getAccount().getSum()>=price && !isOwned)
-		{
-			return true;
-		}
-		else if(p.getAccount().getSum() < price && !isOwned)
-		{
-			return false;
-		}
-		else
-		{
-			p.getAccount().withdraw(rent);
-			owner.getAccount().addSum(rent);
-			return false;
-		}
-	}
+	public abstract int getRent(Player p);
 
 	public void setOwner(Player owner) 
 	{
 		this.owner = owner;
-		this.isOwned = true;
 	}	
 	
 	public Player getOwner()

@@ -3,8 +3,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.Field;
-import game.Fieldlist;
+import model.fields.Field;
+import model.fields.Fieldlist;
 
 public class JUnitTestFieldlist 
 {

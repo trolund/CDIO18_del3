@@ -1,4 +1,6 @@
-package game;
+package view;
+
+import controller.Gamecontroller;
 
 /*
  * Class wrote by: Troels Lund and Kasper Leiszner
@@ -6,6 +8,8 @@ package game;
 
 import desktop_fields.Street;
 import desktop_resources.GUI;
+import model.Player;
+import model.fields.Fieldlist;
 
 public class Output 
 {
@@ -35,7 +39,7 @@ public class Output
 	
 	public void drawGameboard(Fieldlist fd)
 	{
-		game.Field[] logicField = fd.getFields();
+		model.fields.Field[] logicField = fd.getFields();
 		desktop_fields.Field[] guiField = new desktop_fields.Field[logicField.length];
 
 		for (int i = 0; i < logicField.length; i++) 

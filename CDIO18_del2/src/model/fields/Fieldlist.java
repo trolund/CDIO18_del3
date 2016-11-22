@@ -1,8 +1,8 @@
-package game;
+package model.fields;
 
- public class  Fieldlist 
+public class  Fieldlist 
 {
-	private game.Field[] fields = new Field[22];
+	private model.fields.Field[] fields = new Field[22];
 
 	public Fieldlist()
 	{
@@ -33,14 +33,14 @@ package game;
 		fields[17] = new Tax("Caravan", "description", 4000, 10); //10 procent of total assets
 		
 		
-		fields[18] = new Fleet("Second Sail","descrip", 4000, 1); // Mellem 500 og 4000 rent
-		fields[19] = new Fleet("Sea Grover", "descprtiop", 4000, 1);
-		fields[20] = new Fleet("The Buccanneers", "fdescriptoin",4000, 1);
-		fields[21] = new Fleet("Privateer armade", "descripterion", 4000, 1);
+		fields[18] = new Fleet("Second Sail","descrip", 4000, 500); // Mellem 500 og 4000 rent
+		fields[19] = new Fleet("Sea Grover", "descprtiop", 4000, 500);
+		fields[20] = new Fleet("The Buccanneers", "fdescriptoin",4000, 500);
+		fields[21] = new Fleet("Privateer armade", "descripterion", 4000, 500);
 		
 	}
 	
-	public game.Field[] getFields()
+	public model.fields.Field[] getFields()
 	{
 		return fields;
 	}

@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.Language;
+import view.Language;
 
 public class JUnitTestLanguage 
 {

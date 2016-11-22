@@ -1,4 +1,4 @@
-package game;
+package model;
 
 public class Player {
 	
@@ -6,6 +6,8 @@ public class Player {
 	private BankAccount account;
 	private boolean bankrupt = false;
 	private int carPos = 0;
+	
+	TODO
 	
 	public Player(int balance, String name) {
 		this.name = name;

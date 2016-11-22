@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-import game.Dicecup;
+import model.Dicecup;
 
 public class FakeDicecup extends Dicecup {
 	

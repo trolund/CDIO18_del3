@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.Player;
-import game.Fieldlist;
-import game.Laborcamp;
-import game.Output;
-import game.Dicecup;
+import model.Dicecup;
+import model.Player;
+import model.fields.Fieldlist;
+import model.fields.Laborcamp;
+import view.Output;
 
 public class JUnitTestLaborcamp 
 {

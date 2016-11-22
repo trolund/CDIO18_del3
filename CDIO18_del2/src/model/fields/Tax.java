@@ -1,4 +1,7 @@
-package game;
+package model.fields;
+
+import model.Player;
+import view.Output;
 
 /**
  * 
@@ -19,15 +22,10 @@ public class Tax extends Field {
 		this.taxRate = taxRate;
 	}
 
-	public void landOn(Player p, int no, Output out)
+	@Override
+	public void landOn(Player p)
 	{
-		always(p,no,out);
-		payTax(p);
-	}
-
-	public void payTax(Player p)
-	{
-		if(p.getCarPos() == 17)
+		if(taxRate > 0)
 		{
 			if(out.taxAction(taxAmmount))
 			{

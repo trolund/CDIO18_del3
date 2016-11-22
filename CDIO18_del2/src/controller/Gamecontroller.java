@@ -1,4 +1,4 @@
-package game;
+package controller;
 
 /**
  * Team 18 - CDIO 3 
@@ -11,7 +11,11 @@ package game;
  */
 
 import desktop_resources.GUI;
+import model.Dicecup;
+import model.Player;
+import model.fields.Fieldlist;
 import tests.FakeDicecup;
+import view.Output;
 
 public class Gamecontroller 
 {
@@ -44,10 +48,18 @@ public class Gamecontroller
 		}
 		numberOfPlayers = out.howManyPlayers();
 		players = out.addplayers(players, startSum);
+		
+		for(int i = 0; i < players.length; i++){
+			out.setcar(1,players[i]);
+		}
+		
 		update();
+		
 	}
 
 	public void update(){
+		
+		
 		for(int i=0; i <= (players.length)-1; i++)
 		{
 			if(!(players[i].getAccount().getSum() <= 0))
@@ -99,14 +111,16 @@ public class Gamecontroller
 
 	private void turn(Player p){
 		GUI.removeAllCars(p.getName());
-
+		
 		cup.die1.roll(); 
 		cup.die2.roll();
 
-		out.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
-
 		list.getFields()[cup.getSum()-1].landOn(p, cup.getSum(), list, out, cup);
-
+		
+		out.setGUIDice(cup.die1.getValue(), cup.die2.getValue());
+		out.msgGUI(list.getFields()[cup.getSum()-1].getDescription());
+		out.setcar(cup.getSum(), p);
+		
 		out.setGUIBalance(p);
 		winner(p);
 	}
