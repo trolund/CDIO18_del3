@@ -21,7 +21,7 @@ package controller;
  * Class wrote by: Troels Lund and Kasper Leiszner
  */
 
-import desktop_resources.GUI;
+
 import model.Dicecup;
 import model.Player;
 import model.fields.Fieldlist;
@@ -95,7 +95,7 @@ public class Gamecontroller
 
 			if(con-1 == numberOfPlayers){
 				Output.winnerPrint(p);
-				GUI.close();
+				Output.CloseGUI();
 			}
 		}
 
@@ -107,7 +107,7 @@ public class Gamecontroller
 	}
 
 	private void turn(Player p){
-		GUI.removeAllCars(p.getName());
+		Output.removeAllCar(p);
 
 		cup.getDie1().roll(); 
 		cup.getDie2().roll();

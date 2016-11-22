@@ -115,7 +115,15 @@ public class Output
 	
 	public static void deniedPurchase(){
 		GUI.showMessage(Language.dpurchaseString());
-		
+	}
+	
+	public static void removeAllCar(Player p){
+		GUI.removeAllCars(p.getName());
+	}
+	
+	public static void CloseGUI(){
+		System.err.println("GUI - Close");
+		GUI.close();
 	}
 }
 
