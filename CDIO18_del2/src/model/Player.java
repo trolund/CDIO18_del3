@@ -57,7 +57,7 @@ public class Player {
 		laborCount = newCount;
 	}
 	
-	public int getLaborCount()
+	public int getLaborcampCount()
 	{
 		return laborCount;
 	}
