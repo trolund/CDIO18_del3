@@ -17,4 +17,9 @@ public class Dicecup {
 		return die2;
 	}
 	
+	public int roll(){
+		die1.roll();
+		die2.roll();
+		return die1.getValue() + die2.getValue();
+	}
 }

@@ -55,13 +55,18 @@ public class TestData {
         lineIndex = 0;
 	}
 	
-	static public int[] getDice(int numberOfDice) {
+	static public int getDice(int numberOfDice) {
 		readNextLine();
-		lineIndex = 2;
-		return Arrays.copyOfRange(linedata, 0, numberOfDice);
+		lineIndex = 0;
+		int x = linedata[0] + linedata[1];
+		return x;
 	}
 	
-    static public int getUserDecision() {
+    public static int[] getLinedata() {
+		return linedata;
+	}
+
+	static public int getUserDecision() {
     	if (lineIndex >= linedata.length) {
     		return 0;
     	}

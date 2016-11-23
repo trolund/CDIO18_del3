@@ -15,6 +15,7 @@ import model.Dicecup;
 import model.Player;
 import model.fields.Fieldlist;
 import tests.FakeDicecup;
+import tests.TestData;
 import view.Output;
 
 public class Gamecontroller 
@@ -102,7 +103,13 @@ public class Gamecontroller
 		cup.getDie2().roll();
 		
 		Output.msgGUI(list.getFields()[cup.getSum()].getDescription());
-		Output.setGUIDice(cup.getDie1().getValue(), cup.getDie2().getValue());
+		
+		if(testMode)
+				Output.setGUIDice(TestData.getLinedata()[0], TestData.getLinedata()[1]);
+		else
+				Output.setGUIDice(cup.getDie1().getValue(), cup.getDie2().getValue());
+		
+		
 		Output.removeCar(p);
 		Output.setcar(cup.getSum(), p, list);
 		

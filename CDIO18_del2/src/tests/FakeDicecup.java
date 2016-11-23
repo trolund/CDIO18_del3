@@ -21,7 +21,9 @@ public class FakeDicecup extends Dicecup {
 	}
 	
 	// replaces the method with the same name in Raflebaeger
-	public int[] kast() {
+	@Override
+	public int getSum(){
+		
 		return TestData.getDice(2);
 	}
 }
