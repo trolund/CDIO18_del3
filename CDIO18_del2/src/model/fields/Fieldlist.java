@@ -45,7 +45,7 @@ public class  Fieldlist
 
 		//Tax type fields is not ownable
 		//withdraw a baseRent or (only [17]) chose to pay 10% of accets
-		fields[16] = new Tax(Language.getFieldNames()[16], Language.getFieldType()[4], 2000,0);
+		fields[16] = new Tax(Language.getFieldNames()[16], Language.getFieldType()[4], 2000, 0);
 		fields[17] = new Tax(Language.getFieldNames()[17], Language.getFieldType()[4], 4000, 10);
 
 		//Fleet type fields is ownable with a price and a rent 

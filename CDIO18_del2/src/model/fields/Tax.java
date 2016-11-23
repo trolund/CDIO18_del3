@@ -25,6 +25,7 @@ public class Tax extends Field {
 	public void landOn(Player p)
 	{
 		System.err.println("Tax");
+		
 		if(taxRate > 0)
 		{
 			if(Output.taxAction(taxAmmount))
@@ -33,9 +34,8 @@ public class Tax extends Field {
 			}
 			else
 			{
-				p.getAccount().withdraw( (int) (p.getAccount().getSum() * (taxRate/100)));
+				p.getAccount().withdraw((taxRate*p.getAccount().getSum())/100);
 			}
-
 		}
 		else
 		{
