@@ -17,13 +17,10 @@ import java.util.Scanner;
 // Use this class to supply testdata to other classes. Everything is static.
 public class TestData {
 	
-	// Make constructor private to prevent instantiation
-	private void Testdata(){}
-	
 	static private Scanner inputfile = null;           // input file
 	static private String filename = "testdata.txt";   // name of test data input file
-	static private int[] linedata = new int[10];       // data extracted from one line of input file
-	static private int lineIndex;                      // index to data field in current line
+	static private int[] linedata = new int[2];       // data extracted from one line of input file
+	static private int index = 0;
 
 	static protected Scanner getScanner () {
 		if (inputfile == null) {
@@ -37,13 +34,16 @@ public class TestData {
 		return inputfile;
 	}
 	
-	static void readNextLine () {
-		getScanner();
-        if (inputfile.hasNextLine()) {
+	private static void readNextLine () 
+	{
+        if (getScanner().hasNextLine()) 
+        {
             String line = inputfile.nextLine();  // read one line
-            String[] fields = line.split(",");   // split the comma-separated line into fields            
-            for (int i = 0; i < fields.length; i++) {
-            	int value = Integer.parseInt(fields[i].trim()); // converert each field to an integer
+            String[] fields = line.split(",");   // split the comma-separated line into fields
+            
+            for (int i = 0; i < fields.length; i++) 
+            {
+            	int value = Integer.parseInt(fields[i]); // converert each field to an integer
             	linedata[i] = value;
             }	        
         }
@@ -52,12 +52,10 @@ public class TestData {
 			inputfile.close();	
 			Arrays.fill(linedata, 0);
 		}
-        lineIndex = 0;
 	}
 	
-	static public int getDice(int numberOfDice) {
+	static public int getDice() {
 		readNextLine();
-		lineIndex = 0;
 		int x = linedata[0] + linedata[1];
 		return x;
 	}
@@ -65,15 +63,6 @@ public class TestData {
     public static int[] getLinedata() {
 		return linedata;
 	}
-
-	static public int getUserDecision() {
-    	if (lineIndex >= linedata.length) {
-    		return 0;
-    	}
-    	int result = linedata[lineIndex];
-    	lineIndex++;
-    	return result;
-    }
 
 
 }

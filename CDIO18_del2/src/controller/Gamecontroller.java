@@ -103,6 +103,7 @@ public class Gamecontroller
 		Output.msgGUI(list.getFields()[p.getCarPos() - 1].getDescription());
 		cup.getDie1().roll(); 
 		cup.getDie2().roll();
+		int sum = cup.getSum(); // sikre at det kun er nødvenrtigt at kalde cup.getSum() en gang! - vigtigt i test mode!
 		
 		if(testMode)
 				Output.setGUIDice(TestData.getLinedata()[0], TestData.getLinedata()[1]);
@@ -110,7 +111,7 @@ public class Gamecontroller
 				Output.setGUIDice(cup.getDie1().getValue(), cup.getDie2().getValue());
 		
 		Output.removeCar(p);
-		Output.setcar(cup.getSum(), p, list);
+		Output.setcar(sum, p, list);
 		
 		list.getFields()[p.getCarPos()-1].landOn(p);
 		

@@ -23,7 +23,6 @@ public class FakeDicecup extends Dicecup {
 	// replaces the method with the same name in Raflebaeger
 	@Override
 	public int getSum(){
-		
-		return TestData.getDice(2);
+		return TestData.getDice();
 	}
 }
