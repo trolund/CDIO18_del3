@@ -23,7 +23,7 @@ public abstract class Ownable extends Field
 		if(p.getAccount().getSum()>=price && owner == null && wantToBuy)
 		{
 			// can buy
-			Output.setColor(p.getCarPos(), p);
+			Output.setColor(p);
 			setOwner(p);
 			
 			if(p.getCarPos() == 14 || p.getCarPos() == 15) //Magic numbers!!! Wooo!!! Det skal være færdigt nu :D

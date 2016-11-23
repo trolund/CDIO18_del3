@@ -109,7 +109,6 @@ public class Gamecontroller
 		else
 				Output.setGUIDice(cup.getDie1().getValue(), cup.getDie2().getValue());
 		
-		
 		Output.removeCar(p);
 		Output.setcar(cup.getSum(), p, list);
 		
@@ -118,6 +117,7 @@ public class Gamecontroller
 		Output.setGUIBalance(p);
 		
 		winner(p);
+		System.out.println();
 	}
 }
 

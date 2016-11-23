@@ -125,9 +125,9 @@ public class Output
 		GUI.removeAllCars(p.getName());
 	}
 	
-	public static void setColor(int fieldNumber, Player p)
+	public static void setColor(Player p)
 	{
-		GUI.setOwner(fieldNumber, p.getName());
+		GUI.setOwner(p.getCarPos(), p.getName());
 	}
 }
 
