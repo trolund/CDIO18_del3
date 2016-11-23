@@ -23,26 +23,26 @@ public abstract class Ownable extends Field
 		if(p.getAccount().getSum()>=price && owner == null)
 		{
 			// can buy
-			
 			wantToBuy = Output.shop(price, p);
+			
 			if(wantToBuy)
 			{
 				Output.setColor(p);
 				setOwner(p);
-			}
 
-			if(p.getCarPos() == 14 || p.getCarPos() == 15) //Magic numbers!!! Wooo!!! Det skal være færdigt nu :D
-			{
-				p.setLaborcampCount(p.getLaborcampCount() + 1);
+				if(p.getCarPos() == 14 || p.getCarPos() == 15) //Magic numbers!!! Wooo!!! Det skal være færdigt nu :D
+				{
+					p.setLaborcampCount(p.getLaborcampCount() + 1);
+				}
+				else if(p.getCarPos() == 18 || p.getCarPos() == 19 || p.getCarPos() == 20 || p.getCarPos() == 21) //Endnu flere! Hvad vil du gøre ved det maaaan
+				{
+					p.setFleetCount(p.getFleetCount() + 1);
+				}
+					
+				p.getAccount().withdraw(price);
+				Output.verificationOfPurchase();
+				System.out.println("You bought this field");
 			}
-			else if(p.getCarPos() == 18 || p.getCarPos() == 19 || p.getCarPos() == 20 || p.getCarPos() == 21) //Endnu flere! Hvad vil du gøre ved det maaaan
-			{
-				p.setFleetCount(p.getFleetCount() + 1);
-			}
-				
-			p.getAccount().withdraw(price);
-			Output.verificationOfPurchase();
-			System.out.println("You bought this field");
 		}
 		else if(p.getAccount().getSum() < price && owner == null)
 		{
@@ -56,12 +56,17 @@ public abstract class Ownable extends Field
 			Output.deniedPurchase();
 			System.out.println("You didn't buy the field");
 		}
-		else if(owner != null)// is owned
+		else if(owner != null && owner != p)// is owned
 		{
 			// Pay rent
 			p.getAccount().withdraw(getRent(p));
 			owner.getAccount().addSum(getRent(p));
 			System.out.println("Field is owned, you paid the rent");
+		}
+		else
+		{
+			//It's your own field
+			System.out.println("It's your own field");
 		}
 	}
 

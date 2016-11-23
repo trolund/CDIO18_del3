@@ -18,13 +18,12 @@ public class JUnitTestLaborcamp
 	{
 		Player[] p = {new Player(30000, "Kasper"), new Player(30000, "Troels")};
 		Fieldlist fdList = new Fieldlist();
-		Dicecup cup = new Dicecup();
-		Output out = new Output();
 		
 		Output.drawGameboard(fdList);
 		Output.howManyPlayers();
 		Output.addplayers(p, 30000);
 		
+		//You DO NOT buy the field
 		fdList.getFields()[14].landOn(p[0]);
 		int exRes = 30000;
 		int res = p[0].getAccount().getSum();
@@ -37,24 +36,16 @@ public class JUnitTestLaborcamp
 	{
 		Player[] p = {new Player(30000, "Kasper"), new Player(30000, "Troels")};
 		Fieldlist fdList = new Fieldlist();
-		Dicecup cup = new Dicecup();
-		Output out = new Output();
 		
 		Output.drawGameboard(fdList);
 		Output.howManyPlayers();
 		Output.addplayers(p, 30000);
 
-		
-		fdList.getFields()[14].landOn(p[0], 14, fdList, out, cup);
-		int exRes = 25000;
+		//You DO buy the field
+		fdList.getFields()[14].landOn(p[0]);
+		int exRes = 30000 - 2500;
 		int res = p[0].getAccount().getSum();
 		
 		assertEquals(exRes, res);
-		
-//		
-//		exRes = 28000;
-//		res = p[1].getAccount().getSum();
-//		
-//		assertEquals(exRes, res);
 	}
 }

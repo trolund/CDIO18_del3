@@ -100,12 +100,9 @@ public class Gamecontroller
 
 	private void turn(Player p)
 	{
-		
-		Output.msgGUI(list.getFields()[p.getCarPos()].getDescription());
+		Output.msgGUI(list.getFields()[p.getCarPos() - 1].getDescription());
 		cup.getDie1().roll(); 
 		cup.getDie2().roll();
-		
-		
 		
 		if(testMode)
 				Output.setGUIDice(TestData.getLinedata()[0], TestData.getLinedata()[1]);

@@ -1,6 +1,5 @@
 package model;
 
-import desktop_resources.GUI;
 import model.fields.Fieldlist;
 
 public class Player {

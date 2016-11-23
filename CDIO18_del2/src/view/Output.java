@@ -91,6 +91,7 @@ public class Output
 		{
 			name = GUI.getUserString(Language.getNameOfPlayer() + " " + (i+1));
 			players[i] = new Player(startSum,name);
+			players[i].setCarPos(1);
 		}
 
 		for(int i=0; i < players.length; i++)
