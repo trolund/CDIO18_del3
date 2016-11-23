@@ -71,8 +71,8 @@ public class Output
 		GUI.create(f);
 	}
 
-	public static void setcar(int no, Player p){
-		p.moveCarPos(no);
+	public static void setcar(int no, Player p, Fieldlist list){
+		p.moveCarPos(no, list);
 		GUI.setCar(p.getCarPos(),p.getName());
 
 	}

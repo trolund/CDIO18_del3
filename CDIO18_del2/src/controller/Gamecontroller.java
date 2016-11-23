@@ -104,7 +104,7 @@ public class Gamecontroller
 		Output.msgGUI(list.getFields()[cup.getSum()].getDescription());
 		Output.setGUIDice(cup.getDie1().getValue(), cup.getDie2().getValue());
 		Output.removeCar(p);
-		Output.setcar(cup.getSum(), p);
+		Output.setcar(cup.getSum(), p, list);
 		
 		list.getFields()[cup.getSum()].landOn(p);
 		

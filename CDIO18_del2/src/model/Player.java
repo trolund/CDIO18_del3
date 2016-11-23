@@ -1,5 +1,7 @@
 package model;
 
+import model.fields.Fieldlist;
+
 public class Player {
 
 	private String name;
@@ -43,11 +45,11 @@ public class Player {
 		this.carPos = carPos;
 	}
 
-	public void moveCarPos(int carPos) 
+	public void moveCarPos(int carPos, Fieldlist list) 
 	{
-		if(this.carPos + carPos > 21)
+		if(this.carPos + carPos > list.getFields().length)
 		{
-			this.carPos = (this.carPos + carPos) - 21;
+			this.carPos = (this.carPos + carPos) - list.getFields().length;
 		}
 		else
 		{

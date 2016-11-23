@@ -32,7 +32,7 @@ public abstract class Ownable extends Field
 			{
 				p.setLaborcampCount(p.getLaborcampCount() + 1);
 			}
-			else
+			else if(p.getCarPos() == 18 || p.getCarPos() == 19 || p.getCarPos() == 20 || p.getCarPos() == 21) //Endnu flere! Hvad vil du gøre ved det maaaan
 			{
 				p.setFleetCount(p.getFleetCount() + 1);
 			}
