@@ -22,6 +22,7 @@ public class Refuge extends Field
 	public void landOn(Player p)
 	{	
 		p.getAccount().addSum(bonus);
+		System.err.println("refuge");
 	}
 	
 	

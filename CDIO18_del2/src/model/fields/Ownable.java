@@ -19,6 +19,7 @@ public abstract class Ownable extends Field
 	@Override
 	public void landOn(Player p)
 	{
+		System.err.println("Ownable");
 		boolean wantToBuy = Output.shop(price, p);
 		
 		if(p.getAccount().getSum()>=price && owner == null && wantToBuy)

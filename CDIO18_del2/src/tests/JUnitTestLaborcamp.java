@@ -21,11 +21,11 @@ public class JUnitTestLaborcamp
 		Dicecup cup = new Dicecup();
 		Output out = new Output();
 		
-		out.drawGameboard(fdList);
-		out.howManyPlayers();
-		out.addplayers(p, 30000);
+		Output.drawGameboard(fdList);
+		Output.howManyPlayers();
+		Output.addplayers(p, 30000);
 		
-		fdList.getFields()[14].landOn(p[0], 14, fdList, out, cup);
+		fdList.getFields()[14].landOn(p[0]);
 		int exRes = 30000;
 		int res = p[0].getAccount().getSum();
 		
@@ -40,9 +40,9 @@ public class JUnitTestLaborcamp
 		Dicecup cup = new Dicecup();
 		Output out = new Output();
 		
-		out.drawGameboard(fdList);
-		out.howManyPlayers();
-		out.addplayers(p, 30000);
+		Output.drawGameboard(fdList);
+		Output.howManyPlayers();
+		Output.addplayers(p, 30000);
 
 		
 		fdList.getFields()[14].landOn(p[0], 14, fdList, out, cup);

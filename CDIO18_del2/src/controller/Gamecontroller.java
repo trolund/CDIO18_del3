@@ -101,12 +101,15 @@ public class Gamecontroller
 		cup.getDie1().roll(); 
 		cup.getDie2().roll();
 		
+		Output.msgGUI(list.getFields()[cup.getSum()].getDescription());
 		Output.setGUIDice(cup.getDie1().getValue(), cup.getDie2().getValue());
 		Output.removeCar(p);
 		Output.setcar(cup.getSum(), p);
+		
 		list.getFields()[cup.getSum()].landOn(p);
+		
 		Output.setGUIBalance(p);
-		Output.msgGUI(list.getFields()[cup.getSum()].getDescription());
+		
 		winner(p);
 	}
 }
