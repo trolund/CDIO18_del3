@@ -50,6 +50,7 @@ public class Gamecontroller
 		numberOfPlayers = Output.howManyPlayers();
 		players = Output.addplayers(players, startSum);
 		
+		
 		update();
 	}
 
@@ -99,10 +100,12 @@ public class Gamecontroller
 
 	private void turn(Player p)
 	{
+		
+		Output.msgGUI(list.getFields()[p.getCarPos()].getDescription());
 		cup.getDie1().roll(); 
 		cup.getDie2().roll();
 		
-		Output.msgGUI(list.getFields()[cup.getSum()].getDescription());
+		
 		
 		if(testMode)
 				Output.setGUIDice(TestData.getLinedata()[0], TestData.getLinedata()[1]);
@@ -112,7 +115,7 @@ public class Gamecontroller
 		Output.removeCar(p);
 		Output.setcar(cup.getSum(), p, list);
 		
-		list.getFields()[cup.getSum()].landOn(p);
+		list.getFields()[p.getCarPos()-1].landOn(p);
 		
 		Output.setGUIBalance(p);
 		

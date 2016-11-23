@@ -7,6 +7,7 @@ public abstract class Ownable extends Field
 {
 	protected int price;
 	private Player owner;
+	boolean wantToBuy;
 
 	public Ownable (String name, String description, int price)
 	{
@@ -18,14 +19,18 @@ public abstract class Ownable extends Field
 	public void landOn(Player p)
 	{
 		System.out.println(p.getName() + " has landed on ownable field");
-		boolean wantToBuy = Output.shop(price, p);
 		
-		if(p.getAccount().getSum()>=price && owner == null && wantToBuy)
+		if(p.getAccount().getSum()>=price && owner == null)
 		{
 			// can buy
-			Output.setColor(p);
-			setOwner(p);
 			
+			wantToBuy = Output.shop(price, p);
+			if(wantToBuy)
+			{
+				Output.setColor(p);
+				setOwner(p);
+			}
+
 			if(p.getCarPos() == 14 || p.getCarPos() == 15) //Magic numbers!!! Wooo!!! Det skal være færdigt nu :D
 			{
 				p.setLaborcampCount(p.getLaborcampCount() + 1);

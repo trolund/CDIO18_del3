@@ -33,7 +33,7 @@ public class Tax extends Field {
 			}
 			else
 			{
-				p.getAccount().withdraw( (int) (p.getAccount().getSum() * ((100-taxRate)/100)));
+				p.getAccount().withdraw( (int) (p.getAccount().getSum() * (taxRate/100)));
 			}
 
 		}
