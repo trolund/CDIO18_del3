@@ -4,10 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import model.Dicecup;
 import model.Player;
 import model.fields.Fieldlist;
-import model.fields.Laborcamp;
 import view.Output;
 
 public class JUnitTestLaborcamp 
@@ -61,23 +59,24 @@ public class JUnitTestLaborcamp
 	{
 		Player[] p = {new Player(30000, "Kasper"), new Player(30000, "Troels")};
 		Fieldlist fdList = new Fieldlist();
-		Dicecup d=new Dicecup();
 		
 		Output.drawGameboard(fdList);
 		Output.howManyPlayers();
 		Output.addplayers(p, 30000);
-		Output.setcar(1, p[0], fdList);
+		Output.setcar(14, p[0], fdList);
+
+		int exRes = p[1].getAccount().getSum();
 		
-		d.getDie1().roll();
-		d.getDie2().roll();
-		
-		//You DO buy the field
+		//You DO buy the fields
 		fdList.getFields()[14].landOn(p[0]);
+		
+		Output.setcar(14, p[0], fdList);
+		fdList.getFields()[15].landOn(p[0]);
+		
 		fdList.getFields()[14].landOn(p[1]);
 
-		int exRes = p[1].getAccount().getSum()-(100 * d.getSum());
 		int res = p[1].getAccount().getSum();
 		
-		assertEquals(exRes, res);
+		assertEquals(exRes, res, 2400);
 	}
 }
