@@ -30,7 +30,7 @@ public abstract class Ownable extends Field
 				Output.setColor(p);
 				setOwner(p);
 
-				if(p.getCarPos() == 14 || p.getCarPos() == 15) //Magic numbers!!! Wooo!!! Det skal være færdigt nu :D
+				if(p.getCarPos() == 13 || p.getCarPos() == 14) //Magic numbers!!! Wooo!!! Det skal være færdigt nu :D
 				{
 					p.setLaborcampCount(p.getLaborcampCount() + 1);
 					System.out.println(p + " Labor count: " + p.getLaborcampCount());
@@ -61,10 +61,10 @@ public abstract class Ownable extends Field
 		else if(owner != null && owner != p)// is owned
 		{
 			// Pay rent
-			p.getAccount().withdraw(getRent(p));
-			owner.getAccount().addSum(getRent(p));
+			p.getAccount().withdraw(getRent(owner));
+			owner.getAccount().addSum(getRent(owner));
 			System.out.println("Field is owned, you paid the rent");
-			Output.payedRent(p, getRent(p));
+			Output.payedRent(p, getRent(owner));
 		}
 		else
 		{
