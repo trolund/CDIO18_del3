@@ -4,29 +4,29 @@ import model.Player;
 import view.Language;
 import view.Output;
 
-public abstract class Ownable extends Field
+public abstract class Ownable extends Field // Ownable klassen nearver for Field klassen, og er "abstract" hvilket betyder der ikke kan lave instandser af Ownable.  
 {
 	protected int price;
 	private Player owner;
 	boolean wantToBuy;
 
-	public Ownable (String name, String description, int price)
+	public Ownable (String name, String description, int price) // Kontruktør 
 	{
-		super(name, description);
-		this.price = price;
+		super(name, description); // kald til superklassens konstruktør
+		this.price = price; // sætter atribut price
 	}
 
 	@Override
-	public void landOn(Player p)
+	public void landOn(Player p) //  landOn metoden - bliver kørt hver kan nogle lander på et Ownable Field
 	{
 		System.out.println(p.getName() + " has landed on ownable field");
 		
-		if(p.getAccount().getSum()>=price && owner == null)
+		if(p.getAccount().getSum()>=price && owner == null) // tjekker om player har penge nok til at købe feltet og om det er ledigt.
 		{
 			// can buy
-			wantToBuy = Output.shop(price, p);
+			wantToBuy = Output.shop(price, p); // Spørg spilleren i GUIen om feltet skal købes. 
 			
-			if(wantToBuy)
+			if(wantToBuy) // hvis playeren sagde ja til købet køres denne kode
 			{
 				Output.setColor(p);
 				setOwner(p);
@@ -42,7 +42,7 @@ public abstract class Ownable extends Field
 					
 				p.getAccount().withdraw(price);
 				Output.verificationOfPurchase();
-				System.out.println("You bought this field");
+				
 			}
 		}
 		else if(p.getAccount().getSum() < price && owner == null)
@@ -55,20 +55,18 @@ public abstract class Ownable extends Field
 		{
 			//Player don't want to buy
 			Output.deniedPurchase();
-			System.out.println("You didn't buy the field");
 		}
 		else if(owner != null && owner != p)// is owned
 		{
 			// Pay rent
 			p.getAccount().withdraw(getRent(p));
 			owner.getAccount().addSum(getRent(p));
-			System.out.println("Field is owned, you paid the rent");
 			Output.payedRent(p, getRent(p));
 		}
 		else
 		{
 			//It's your own field
-			System.out.println("It's your own field");
+			Language.ownField();
 		}
 	}
 

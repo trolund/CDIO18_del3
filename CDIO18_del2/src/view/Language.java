@@ -46,9 +46,14 @@ public class Language
 	private static String tenPercent = "or pay 10% of your balance";
 	private static String willYouBuy = "will you buy this field?";
 	private static String payedRent = "Field is owned, you paid the rent";
+	private static String ownField = "It's your own field -nothing happened";
 	
 	public static String getPayedRent() {
 		return payedRent;
+	}
+	
+	public static String ownField(){
+		return ownField;
 	}
 
 	public static void setPayedRent(String payedRent) {

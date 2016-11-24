@@ -113,11 +113,12 @@ public class Output
 
 	public static void verificationOfPurchase(){
 		GUI.showMessage(Language.purchaseString());
-
+		System.out.println("You bought this field");
 	}
 
 	public static void deniedPurchase(){
 		GUI.showMessage(Language.dpurchaseString());
+		System.out.println("You didn't buy the field");
 
 	}
 	
@@ -132,7 +133,13 @@ public class Output
 	}
 	
 	public static void payedRent(Player p, int rent){
-		GUI.showMessage(p.getName() + " " + Language.payedRent() + " " + rent );
+		GUI.showMessage(p.getName() + ", " + Language.payedRent() + " " + rent );
+		System.out.println("Field is owned, you paid the rent");
+	}
+	
+	public static void ownField(){
+		GUI.showMessage("It's your own field - nothing happened");
+		System.out.println("It's your own field -nothing happened");
 	}
 }
 

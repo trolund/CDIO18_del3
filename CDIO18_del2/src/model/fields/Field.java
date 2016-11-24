@@ -34,4 +34,5 @@ public abstract class Field
 	public String getValue() {
 		return null;
 	}
+
 }
