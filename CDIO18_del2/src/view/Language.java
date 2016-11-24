@@ -45,6 +45,15 @@ public class Language
 	private static String pay = "Pay";
 	private static String tenPercent = "or pay 10% of your balance";
 	private static String willYouBuy = "will you buy this field?";
+	private static String payedRent = "Field is owned, you paid the rent";
+	
+	public static String getPayedRent() {
+		return payedRent;
+	}
+
+	public static void setPayedRent(String payedRent) {
+		Language.payedRent = payedRent;
+	}
 
 	// test mode Strings
 	static String testString[] = {"Test mode options","Run Test Mode","Run Normal Game"};
@@ -122,5 +131,10 @@ public class Language
 	public static String dpurchaseString()
 	{
 		return dpurchase;
+	}
+	
+	public static String payedRent()
+	{
+		return payedRent;
 	}
 }

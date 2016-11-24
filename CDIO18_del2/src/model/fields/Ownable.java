@@ -1,6 +1,7 @@
 package model.fields;
 
 import model.Player;
+import view.Language;
 import view.Output;
 
 public abstract class Ownable extends Field
@@ -62,6 +63,7 @@ public abstract class Ownable extends Field
 			p.getAccount().withdraw(getRent(p));
 			owner.getAccount().addSum(getRent(p));
 			System.out.println("Field is owned, you paid the rent");
+			Output.payedRent(p, getRent(p));
 		}
 		else
 		{

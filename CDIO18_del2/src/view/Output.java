@@ -130,6 +130,10 @@ public class Output
 	{
 		GUI.setOwner(p.getCarPos(), p.getName());
 	}
+	
+	public static void payedRent(Player p, int rent){
+		GUI.showMessage(p.getName() + " " + Language.payedRent() + " " + rent );
+	}
 }
 
 
