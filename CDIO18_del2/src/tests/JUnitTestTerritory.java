@@ -11,7 +11,7 @@ import view.Output;
 public class JUnitTestTerritory {
 
 	@Test
-	public void test() 
+	public void test() //Spiller lander på felt og køber. 
 	{
 		Player [] p = {new Player(30000,"p1"),new Player(30000,"p2")};
 		Fieldlist f = new Fieldlist();
@@ -26,7 +26,7 @@ public class JUnitTestTerritory {
 	}
 	
 	@Test
-	public void test2() 
+	public void test2() //Spiller lander felt eget af anden spiller og betaler afgift
 	{
 		Player [] p = {new Player(30000,"p1"),new Player(30000,"p2")};
 		Fieldlist f = new Fieldlist();
