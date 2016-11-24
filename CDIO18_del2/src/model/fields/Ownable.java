@@ -1,7 +1,6 @@
 package model.fields;
 
 import model.Player;
-import view.Language;
 import view.Output;
 
 public abstract class Ownable extends Field
