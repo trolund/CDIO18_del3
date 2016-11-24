@@ -24,5 +24,24 @@ public class JUnitTestTerritory {
 		assertEquals(exRe,Re);
 		
 	}
+	
+	@Test
+	public void test2() 
+	{
+		Player [] p = {new Player(30000,"p1"),new Player(30000,"p2")};
+		Fieldlist f = new Fieldlist();
+		
+		Output.setcar(1, p[0], f);
+		
+		int exRe = p[1].getAccount().getSum()-100;
+
+		
+		f.getFields()[1].landOn(p[0]);
+		f.getFields()[1].landOn(p[1]);
+		int Re = p[1].getAccount().getSum();
+		
+
+		assertEquals(exRe,Re);
+	}
 
 }
