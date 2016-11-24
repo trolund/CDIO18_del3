@@ -4,6 +4,15 @@ package controller;
  * Team 18 - CDIO 3 
  * DTU
  * Collaborators:  KasperLeiszner, Bijan Negari, Helene Zgaya, Frederik von Scholten and Troels Lund
+ * 
+							   ___                               _  ___  
+							  / _ \_ __ _   _ _ __  _ __   ___  / |( _ ) 
+							 / /_\/ '__| | | | '_ \| '_ \ / _ \ | |/ _ \ 
+							/ /_\\| |  | |_| | |_) | |_) |  __/ | | (_) |
+							\____/|_|   \__,_| .__/| .__/ \___| |_|\___/ 
+							                 |_|   |_|                   
+ * 
+ * 
  */
 
 /*
@@ -46,11 +55,11 @@ public class Gamecontroller
 		{
 			cup = new Dicecup();
 		}
-		
+
 		numberOfPlayers = Output.howManyPlayers();
 		players = Output.addplayers(players, startSum);
-		
-		
+
+
 		update();
 	}
 
@@ -61,7 +70,7 @@ public class Gamecontroller
 			for(int i=0; i < players.length; i++)
 			{
 				winner(players[i]);
-				
+
 				if(!(players[i].getAccount().getSum() <= 0))
 				{
 					turn(players[i]);
@@ -77,7 +86,7 @@ public class Gamecontroller
 	private void winner(Player p)
 	{
 		int con = 0;
-		
+
 		for(int i =0; i < players.length; i++)
 		{
 			if(players[i].getBankruptStatus())
@@ -85,7 +94,7 @@ public class Gamecontroller
 				con++;
 			}
 		}
-		
+
 		if(con == numberOfPlayers - 1)
 		{
 			Output.winnerPrint(p);
@@ -104,19 +113,19 @@ public class Gamecontroller
 		cup.getDie1().roll(); 
 		cup.getDie2().roll();
 		int sum = cup.getSum(); // sikre at det kun er nødvenrtigt at kalde cup.getSum() en gang! - vigtigt i test mode!
-		
+
 		if(testMode)
-				Output.setGUIDice(TestData.getLinedata()[0], TestData.getLinedata()[1]);
+			Output.setGUIDice(TestData.getLinedata()[0], TestData.getLinedata()[1]);
 		else
-				Output.setGUIDice(cup.getDie1().getValue(), cup.getDie2().getValue());
-		
+			Output.setGUIDice(cup.getDie1().getValue(), cup.getDie2().getValue());
+
 		Output.removeCar(p);
 		Output.setcar(sum, p, list);
-		
+
 		list.getFields()[p.getCarPos()-1].landOn(p);
-		
+
 		Output.setGUIBalance(p);
-		
+
 		winner(p);
 		System.out.println();
 	}
