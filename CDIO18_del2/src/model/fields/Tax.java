@@ -42,4 +42,9 @@ public class Tax extends Field {
 			p.getAccount().withdraw(taxAmmount);
 		}
 	}
+	
+	public int getValue()
+	{
+		return taxAmmount;
+	}
 }

@@ -20,7 +20,6 @@ public class TestData {
 	static private Scanner inputfile = null;           // input file
 	static private String filename = "testdata.txt";   // name of test data input file
 	static private int[] linedata = new int[2];       // data extracted from one line of input file
-	static private int index = 0;
 
 	static protected Scanner getScanner () {
 		if (inputfile == null) {

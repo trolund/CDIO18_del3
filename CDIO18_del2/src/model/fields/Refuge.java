@@ -25,5 +25,9 @@ public class Refuge extends Field
 		System.err.println("refuge");
 	}
 	
+	public int getValue()
+	{
+		return bonus;
+	}
 	
 }

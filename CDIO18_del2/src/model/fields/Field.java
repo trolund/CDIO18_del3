@@ -31,8 +31,5 @@ public abstract class Field
 				"Description: " + description;
 	}
 
-	public String getValue() {
-		return null;
-	}
-
+	public abstract int getValue();
 }
