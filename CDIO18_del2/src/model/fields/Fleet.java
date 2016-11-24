@@ -15,6 +15,8 @@ private int baseRent;
 
 	@Override
 	public int getRent(Player p) {
+		
 		return (int) (baseRent * Math.pow(2, p.getFleetCount() - 1));
+		
 	}
 }
