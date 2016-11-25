@@ -37,6 +37,8 @@ public class JUnitTestTerritory {
 
 		
 		f.getFields()[1].landOn(p[0]);
+		// spiller 0 køber feltet 
+		
 		f.getFields()[1].landOn(p[1]);
 		int Re = p[1].getAccount().getSum();
 		

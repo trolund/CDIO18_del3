@@ -17,9 +17,8 @@ public class JUnitTestFleet {
 
 		//Player p = new Player(balance, name);
 
-		Player bijan = new Player(10000, "Bijan");
+		Player bijan = new Player(20000, "Bijan");
 		Player kasper = new Player(30000, "Kasper");
-		Player helene = new Player(25000, "Helene");
 		Fieldlist list = new Fieldlist();
 
 		Output.setcar(18, bijan, list);
@@ -28,16 +27,34 @@ public class JUnitTestFleet {
 		// bijan køber feltet
 
 		list.getFields()[18].landOn(kasper);
-		assertEquals(6500, bijan.getAccount().getSum());
-		assertEquals(29500, kasper.getAccount().getSum());
+		assertEquals(16500, bijan.getAccount().getSum());	// Efter bijan har købt et fleet felt, lander kasper på samme felt, og overhøre 500 
+		assertEquals(29500, kasper.getAccount().getSum());	// dask til bijan.
 
 		// bijan lander herefter på felt 19
 		list.getFields()[19].landOn(bijan);
 		// og køber endnu en fleet
 
 		list.getFields()[18].landOn(kasper);
-		assertEquals(3500, bijan.getAccount().getSum());
-		assertEquals(28500, kasper.getAccount().getSum());
+		assertEquals(13500, bijan.getAccount().getSum());	// bijan køber endnu et fleet felt, og kasper lander uheldigvis på samme felt.
+		assertEquals(28500, kasper.getAccount().getSum());	// nu må han betale 1000, da bijan ejer 2 fleets
 
+		
+		Output.setcar(21, bijan, list);
+		// bijan lander på felt 21
+		list.getFields()[21].landOn(bijan);
+		// bijan køber feltet
+		
+		
+		list.getFields()[21].landOn(kasper);
+		assertEquals(11500, bijan.getAccount().getSum());	// det samme bro, bare nu med 3 fleets
+		assertEquals(26500, kasper.getAccount().getSum());	// betaler 2000 
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
