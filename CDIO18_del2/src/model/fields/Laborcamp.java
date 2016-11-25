@@ -14,6 +14,52 @@ public class Laborcamp extends Ownable
 		this.baseRent = baseRent;
 		
 	}
+	
+	@Override
+	public void landOn(Player p)
+	{
+		System.out.println(p.getName() + " has landed on Laborcamp field");
+		
+		if(p.getAccount().getSum()>=price && getOwner() == null)
+		{
+			// can buy
+			wantToBuy = Output.shop(price, p);
+			
+			if(wantToBuy)
+			{
+				Output.setColor(p);
+				setOwner(p);
+
+					p.setLaborcampCount(p.getLaborcampCount() + 1);
+					System.out.println(p + " Labor count: " + p.getLaborcampCount());
+				
+				p.getAccount().withdraw(price);
+				Output.verificationOfPurchase();
+			}
+		}
+		else if(p.getAccount().getSum() < price && getOwner() == null)
+		{
+			// cant affort
+			Output.deniedPurchase();
+		}
+		else if(p.getAccount().getSum()>=price && getOwner() == null && !wantToBuy)
+		{
+			//Player don't want to buy
+			Output.deniedPurchase();
+		}
+		else if(getOwner() != null && getOwner() != p)// is owned
+		{
+			// Pay rent
+			p.getAccount().withdraw(getRent(getOwner()));
+			getOwner().getAccount().addSum(getRent(getOwner()));
+			Output.payedRent(p, getRent(getOwner()));
+		}
+		else
+		{
+			//It's your own field
+			Output.ownField();
+		}
+	}
 
 	@Override
 	public int getRent(Player p) 
