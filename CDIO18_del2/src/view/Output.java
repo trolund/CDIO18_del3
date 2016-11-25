@@ -9,6 +9,7 @@ import controller.Gamecontroller;
 import desktop_fields.Street;
 import desktop_resources.GUI;
 import model.Player;
+import model.fields.Field;
 import model.fields.Fieldlist;
 
 public class Output 
@@ -140,6 +141,10 @@ public class Output
 	public static void ownField(){
 		GUI.showMessage("It's your own field - nothing happened");
 		System.out.println("It's your own field -nothing happened");
+	}
+	
+	public static void landMSG(Player p,Field f){
+		System.out.println(p.getName() + " has landed on" + f.getClass().getSimpleName() +  "field");
 	}
 }
 

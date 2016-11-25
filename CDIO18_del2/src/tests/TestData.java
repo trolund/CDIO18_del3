@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import desktop_resources.GUI;
+
 // Use this class to supply testdata to other classes. Everything is static.
 public class TestData {
 	
@@ -28,6 +30,8 @@ public class TestData {
 			}
 			catch (IOException e) { // error message if the file cannot be opened
 	            System.out.println("Cannot read file " + filename + " in " + System.getProperty("user.dir"));
+	            GUI.close();
+	            System.exit(0);
 	        }			
 		}
 		return inputfile;
@@ -48,8 +52,8 @@ public class TestData {
         }
         else { // there are no more lines in the file
 			System.out.println("End of file " + filename);
-			inputfile.close();	
-			Arrays.fill(linedata, 0);
+			inputfile.close();
+			System.exit(0);
 		}
 	}
 	

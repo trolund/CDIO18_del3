@@ -18,7 +18,7 @@ public class Laborcamp extends Ownable
 	@Override
 	public void landOn(Player p)
 	{
-		System.out.println(p.getName() + " has landed on Laborcamp field");
+		Output.landMSG(p,this);
 		
 		if(p.getAccount().getSum()>=price && getOwner() == null)
 		{

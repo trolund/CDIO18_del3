@@ -16,7 +16,7 @@ public class Territory extends Ownable
 	@Override
 	public void landOn(Player p)
 	{
-		System.out.println(p.getName() + " has landed on Territory field");
+		Output.landMSG(p,this);
 		
 		if(p.getAccount().getSum()>=price && getOwner() == null)
 		{
@@ -29,7 +29,6 @@ public class Territory extends Ownable
 				setOwner(p);
 				p.getAccount().withdraw(price);
 				Output.verificationOfPurchase();
-				System.out.println("You bought this field");
 			}
 		}
 		else if(p.getAccount().getSum() < price && getOwner() == null)

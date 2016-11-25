@@ -16,7 +16,7 @@ private int baseRent;
 	
 	public void landOn(Player p)
 	{
-		System.out.println(p.getName() + " has landed on Fleet field");
+		Output.landMSG(p,this);
 		
 		if(p.getAccount().getSum()>=price && getOwner() == null)
 		{
