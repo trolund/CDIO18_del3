@@ -22,7 +22,7 @@ public class JUnitTestLanguage
 	public void TC02()
 	{
 		String exRes = "Cold Desert";
-		String res = Language.getFieldNames()[3];
+		String res = Language.getFieldNames()[4];
 		
 		assertEquals(exRes, res);
 	}
