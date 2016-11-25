@@ -9,7 +9,7 @@ import model.Player;
 public class JUnitTestPlayer {
 
 	@Test
-	public void testPLayer() {
+	public void testPLayer() { 
 		
 		Player p = new Player(50 ,"Knud");
 	
